@@ -1,0 +1,11 @@
+.mySlider {
+    width: 290px;
+    grid-column: span 3;
+    margin-left: 250px;
+  }
+  
+  .mySlide {
+    text-align: center;
+    color: white;
+    background-color: black;
+  }

@@ -1,11 +1,12 @@
-import React from "react";
-
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 // import IconButton from "@mui/material/IconButton";
 import { styled } from "@mui/material/styles";
 // import MenuIcon from "@mui/icons-material/Menu";
+import logo from "../../assets/logo.png";
+// import { Typography } from "@mui/material";
+import CarouselText from "../../components/Slider/CarouselText";
 
 const drawerWidth = 240;
 
@@ -36,10 +37,18 @@ export default function Header() {
       position="fixed"
       sx={{
         boxShadow: "none",
-        backgroundColor: " rgba(61, 61, 61, 1)",
+        backgroundColor: " #FFFFFF",
       }}
     >
-      <Toolbar sx={{ display: "flex" }}>
+      <Toolbar
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "repeat(12, 1fr)",
+          rowGap: 1,
+          // columnGap: 2,
+          gridColumn: "span 12",
+        }}
+      >
         {/* <IconButton
           color="inherit"
           aria-label="open drawer"
@@ -55,31 +64,75 @@ export default function Header() {
         >
           <MenuIcon />
         </IconButton> */}
-        {/* 
-        <Link to={ROUTES.DASHBOARD}>
-          <img
-            src={PageTitle}
-            alt="title"
-            style={{ width: '72px', height: '22px' }}
-          />
-        </Link> */}
+
+        <img src={logo} alt="" style={{ gridColumn: "span 2" }} />
+        <Button
+          variant="text"
+          sx={{
+            gridColumn: "span 1",
+            color: "#5D6670",
+            height: "30px",
+            textTransform: "none",
+            ":hover": {
+              backgroundColor: " #Ffffff",
+              boxShadow: "none",
+              border: "none",
+            },
+          }}
+        >
+          About us
+        </Button>
+        <Button
+          variant="text"
+          sx={{
+            gridColumn: "span 2",
+            textTransform: "none",
+            color: "#5D6670",
+            height: "30px",
+            ":hover": {
+              backgroundColor: " #Ffffff",
+              boxShadow: "none",
+            },
+          }}
+        >
+          Top Cryptos
+        </Button>
+
+        <CarouselText />
 
         <Button
           variant="text"
           sx={{
-            mt: 0.5,
-            m: "-20px",
-            color: "#fff",
-            width: "48px",
+            gridColumn: "span 2",
+            textTransform: "none",
+            color: "#5D6670",
             height: "30px",
             ":hover": {
-              backgroundColor: " rgba(0, 0, 0, 0.12);",
-              color: "#fff",
+              backgroundColor: " #Ffffff",
+              boxShadow: "none",
             },
           }}
-          //   onClick={onLogout}
         >
-          SAIR
+          Sign in
+        </Button>
+
+        <Button
+          variant="contained"
+          sx={{
+            gridColumn: "span 2",
+            textTransform: "none",
+            color: "#fff",
+            padding: "8px 16px",
+            backgroundColor: " #FBAB34",
+            borderRadius: "32px",
+            boxShadow: "none",
+            ":hover": {
+              backgroundColor: " #FBAB34",
+              boxShadow: "none",
+            },
+          }}
+        >
+          Sign up
         </Button>
       </Toolbar>
     </AppBar>

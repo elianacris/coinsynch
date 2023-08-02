@@ -1,7 +1,7 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { Home } from "../pages/Home/Home";
 import { Dashboard } from "../pages/Dashboard/Dashboard";
+import { WithNav } from "./RoutesLayout/WithNav";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export enum ROUTES {
@@ -14,7 +14,9 @@ export enum ROUTES {
 export default function Router() {
   return (
     <Routes>
-      <Route path={ROUTES.HOME} element={<Home />} />
+      <Route element={<WithNav />}>
+        <Route path={ROUTES.HOME} element={<Home />} />
+      </Route>
       <Route path={ROUTES.DASHBOARD} element={<Dashboard />} />
     </Routes>
   );
