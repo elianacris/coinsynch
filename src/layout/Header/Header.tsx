@@ -4,8 +4,9 @@ import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 // import IconButton from "@mui/material/IconButton";
 import { styled } from "@mui/material/styles";
 // import MenuIcon from "@mui/icons-material/Menu";
-import logo from "../../assets/logo.png";
 // import { Typography } from "@mui/material";
+
+import logo from "../../assets/logo.png";
 import CarouselText from "../../components/Slider/CarouselText";
 
 const drawerWidth = 240;

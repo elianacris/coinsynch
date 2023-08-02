@@ -1,6 +1,7 @@
 import React from "react";
 import Slider, { Settings } from "react-slick";
 import { Typography } from "@mui/material";
+
 import "./style.css";
 
 const CarouselText: React.FC = () => {
