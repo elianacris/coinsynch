@@ -1,4 +1,5 @@
 import { Box, Button, Typography } from "@mui/material";
+import { FieldValues, useForm } from "react-hook-form";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 import { TextBlock } from "../../components/TextBlock";
@@ -10,12 +11,38 @@ import card2 from "../../assets/imageCards/card2.svg";
 import card3 from "../../assets/imageCards/card3.svg";
 import card4 from "../../assets/imageCards/card4.svg";
 import logoFooter from "../../assets/logoFooter.svg";
+import InputRHF from "../../components/RHF/InputRHF";
+import CarouselImage from "../../components/Slider/CarouselImage";
+
+interface IFormInputs {
+  email: string;
+}
 
 export const Home = () => {
+  const form = useForm<FieldValues>({
+    mode: "all",
+    defaultValues: { email: "" },
+  });
+
+  const { control, handleSubmit } = form;
+
+  const onSubmit = (data: IFormInputs) => {
+    console.log(data);
+  };
+
   return (
-    <Box>
+    <Box
+      sx={{
+        mt: "64px",
+        display: "grid",
+        gridTemplateColumns: "repeat(12, 1fr)",
+        rowGap: 1,
+        // columnGap: 2,
+        gridColumn: "span 12",
+      }}
+    >
       {/* primeiro box */}
-      <Box>
+      <Box sx={{ gridColumn: "span 12" }}>
         <Typography
           sx={{
             width: "590px",
@@ -24,6 +51,7 @@ export const Home = () => {
             fontWeight: 700,
             lineHeight: "56px",
             letterSpacing: "-0. 48px",
+            gridColumn: "span 12"
           }}
         >
           Lorem ipsum dolor sit amet, consectetur
@@ -68,6 +96,7 @@ export const Home = () => {
           <TextBlock name={"NFTs"} />
           <TextBlock name={"Games"} />
         </Box>
+        <CarouselImage />
         <img src={design} alt="" />
       </Box>
       {/* segundo box */}
@@ -172,9 +201,11 @@ export const Home = () => {
           </Button>
         </Box>
       </Box>
+      {/* terceiro box */}
       <Box sx={{ background: "#fff" }}>
         <TableComponent />
       </Box>
+      {/* quarto box */}
       <Box
         sx={{
           fill: "linear-gradient(180deg, rgba(251, 171, 52, 0.20) 0%, rgba(251, 171, 52, 0.00) 100%)",
@@ -219,27 +250,30 @@ export const Home = () => {
             purus sit amet luctus venenatis, lectus magna fringilla urna,
             porttitor
           </Typography>
+          <Box component={"form"} onSubmit={handleSubmit(onSubmit)}>
+            <InputRHF control={control} name={"email"} placeholder="Email" />
 
-          <Button
-            variant="contained"
-            sx={{
-              borderRadius: "32px",
-              minWidth: "384px",
-              p: "14px 24px",
-              height: "48px",
-              gap: "10px",
-              color: "white",
-              boxShadow: "0px 12px 24px 0px rgba(0, 0, 0, 0.10)",
-              ":hover": {
-                backgroundColor: " #FBAB34",
-                boxShadow: "none",
-              },
+            <Button
+              variant="contained"
+              sx={{
+                borderRadius: "32px",
+                minWidth: "384px",
+                p: "14px 24px",
+                height: "48px",
+                gap: "10px",
+                color: "white",
+                boxShadow: "0px 12px 24px 0px rgba(0, 0, 0, 0.10)",
+                ":hover": {
+                  backgroundColor: " #FBAB34",
+                  boxShadow: "none",
+                },
 
-              textTransform: "none",
-            }}
-          >
-            Sign up Now
-          </Button>
+                textTransform: "none",
+              }}
+            >
+              Subscribe
+            </Button>
+          </Box>
         </Box>
       </Box>
       <footer

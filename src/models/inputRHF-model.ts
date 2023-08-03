@@ -1,6 +1,7 @@
 import { SxProps, Theme } from "@mui/material";
 import { ChangeEvent, FocusEvent } from "react";
 import {
+  Control,
   FieldValues,
   UseControllerProps,
   UseFormSetValue,
@@ -14,6 +15,7 @@ export interface BaseRHFProps extends Partial<UseControllerProps> {
   children?: React.ReactNode;
   setValue?: UseFormSetValue<FieldValues>;
   trigger?: UseFormTrigger<FieldValues>;
+  control?: Control<FieldValues>;
 }
 
 export interface InputRHFProps extends BaseRHFProps {
@@ -23,7 +25,6 @@ export interface InputRHFProps extends BaseRHFProps {
   disabled?: boolean;
   type?: string;
   multiline?: boolean;
-  rows?: number;
   helperText?: string;
   onBlurAction?: (event: FocusEvent<HTMLInputElement>) => void;
   onChangeAction?: (value: string) => void;
@@ -46,16 +47,6 @@ export interface InputMaskRHFProps extends InputRHFProps {
   loading?: boolean;
   size?: number | undefined;
 }
-
-export interface FormOption {
-  id: string | number;
-  name: string;
-  latitude?: string;
-  longitude?: string;
-  address?: string;
-}
-
-export interface IdAndName extends FormOption {}
 
 export interface AutocompleteOptionsType {
   value: string | number;
