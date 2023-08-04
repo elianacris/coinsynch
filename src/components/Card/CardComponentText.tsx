@@ -1,16 +1,21 @@
+import { ReactNode } from "react";
 import { Card, SxProps, Typography } from "@mui/material";
+
 interface Props {
   image: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
   description: string;
+  button: ReactNode;
   sx: SxProps;
 }
-export const CardComponent = ({
+
+export const CardComponentText = ({
   title,
   description,
   image,
   subtitle,
+  button,
   sx,
 }: Props) => {
   return (
@@ -18,7 +23,6 @@ export const CardComponent = ({
       sx={{
         borderradius: "6px",
         background: "#FFF",
-        boxShadow: "0px 12px 24px 0px rgba(0, 0, 0, 0.05)",
         ...sx,
       }}
     >
@@ -54,6 +58,7 @@ export const CardComponent = ({
       >
         {description}
       </Typography>
+      {button}
     </Card>
   );
 };

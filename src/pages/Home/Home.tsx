@@ -37,12 +37,19 @@ export const Home = () => {
         display: "grid",
         gridTemplateColumns: "repeat(12, 1fr)",
         rowGap: 1,
-        // columnGap: 2,
         gridColumn: "span 12",
       }}
     >
       {/* primeiro box */}
-      <Box sx={{ gridColumn: "span 12" }}>
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "repeat(12, 1fr)",
+          rowGap: 1,
+          // columnGap: 2,
+          gridColumn: "span 12",
+        }}
+      >
         <Typography
           sx={{
             width: "590px",
@@ -51,7 +58,7 @@ export const Home = () => {
             fontWeight: 700,
             lineHeight: "56px",
             letterSpacing: "-0. 48px",
-            gridColumn: "span 12"
+            gridColumn: "span 12",
           }}
         >
           Lorem ipsum dolor sit amet, consectetur
@@ -64,6 +71,7 @@ export const Home = () => {
             fontSize: "20px",
             fontWeight: 400,
             lineHeight: "32px",
+            gridColumn: "span 12",
           }}
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
@@ -84,34 +92,46 @@ export const Home = () => {
               backgroundColor: " #FBAB34",
               boxShadow: "none",
             },
-            display: "flex",
+            // display: "flex",
             flexDirection: "row",
             alignItems: "center",
+            gridColumn: "span 1",
           }}
         >
           SIGN UP {<ArrowForwardIcon sx={{ width: "16px", height: "24px" }} />}
         </Button>
-        <Box sx={{ display: "flex", flexDirection: "row", gap: "8px" }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            gap: "8px",
+            gridColumn: "span 12",
+          }}
+        >
           <TextBlock name={"Cryptos"} />
           <TextBlock name={"NFTs"} />
           <TextBlock name={"Games"} />
         </Box>
         <CarouselImage />
-        <img src={design} alt="" />
+        <img src={design} alt="" style={{ gridColumn: "span 12" }} />
       </Box>
       {/* segundo box */}
       <Box
         sx={{
           background:
             "linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #F7F7F7 100%)",
-          display: "flex",
+          display: "grid",
+          gridTemplateColumns: "repeat(12, 1fr)",
+          rowGap: 1,
+          gridColumn: "span 12",
         }}
       >
         <Box
           sx={{
-            display: "flex",
-            flexDirection: "row",
-            flexWrap: "wrap",
+            display: "grid",
+            gridTemplateColumns: "repeat(10, 1fr)",
+            rowGap: 1,
+            gridColumn: "span 10",
             gap: "10px",
             ml: 5,
           }}
@@ -121,27 +141,38 @@ export const Home = () => {
             title="For your company"
             subtitle="Crypto Solutions"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, "
+            sx={{ gridColumn: "span 2" }}
           />
           <CardComponent
             image={card2}
             title="For your company"
             subtitle="Crypto Solutions"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, "
+            sx={{ gridColumn: "span 2" }}
           />
           <CardComponent
             image={card3}
             title="For your company"
             subtitle="Crypto Solutions"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, "
+            sx={{ gridColumn: "span 2" }}
           />
           <CardComponent
             image={card4}
             title="For your company"
             subtitle="Crypto Solutions"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, "
+            sx={{ gridColumn: "span 2" }}
           />
         </Box>
-        <Box sx={{ display: "flex", flexDirection: "column" }}>
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: "repeat(12, 1fr)",
+            rowGap: 1,
+            gridColumn: "span 12",
+          }}
+        >
           <Typography
             sx={{
               color: "#FBAB34",
