@@ -1,10 +1,12 @@
-import { Box, Button, Checkbox, Divider, Typography } from "@mui/material";
+import { Box, Button, Checkbox, Typography } from "@mui/material";
 import ModalComponent from ".";
 import InputPasswordRHF from "../RHF/InputRHFPassword";
 import InputRHF from "../RHF/InputRHF";
 import { FieldValues, useForm } from "react-hook-form";
 import { defaultValues } from "../../pages/Home/validators/signUpSchema";
-
+import "./style.css";
+// import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+// import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 interface Props {
   open?: boolean;
   handleClose?: () => void;
@@ -22,96 +24,123 @@ export const ModalSignUp = ({ open, handleClose }: Props) => {
     defaultValues: defaultValues,
   });
 
-  const { control, handleSubmit, formState } = form;
+  const { control, handleSubmit } = form;
 
   const onSubmit = (data: FormData) => {
     console.log(data);
   };
+
   return (
     <ModalComponent open={open} handleClose={handleClose}>
       <Box
         component={"form"}
         onSubmit={handleSubmit(onSubmit)}
         sx={{
-          width: "100%",
-          height: "100%",
           display: "flex",
           alignItems: "center",
-          justifyContent: "flex-start",
           flexDirection: "column",
+          gap: "24px",
+          p: "32px",
         }}
       >
         <Typography
           sx={{
-            fontFamily: "Roboto",
             fontWeight: 400,
             fontSize: "24px",
             lineHeight: "29px",
             letterSpacing: "0.18px",
-            color: "#FF5E1E",
+            color: "#5D6670",
           }}
         >
-          Sign in to <b>Coin</b>
-          <b>Synch</b>
+          Sign in to <b className="textColor1">Coin</b>
+          <b className="textColor3">Synch</b>
         </Typography>
-        <InputRHF control={control} name="name" />
-        <InputRHF control={control} name="email" />
+        <InputRHF
+          control={control}
+          name="name"
+          label="Name"
+          placeholder="Name"
+          sx={{ width: "384px", height: "48px", mb: "-5px" }}
+        />
+        <InputRHF
+          control={control}
+          name="email"
+          label="Email"
+          placeholder="Email"
+          sx={{ width: "384px", height: "48px" }}
+        />
 
         <InputPasswordRHF
+          control={control}
           name="password"
-          control={control}
+          placeholder="Password"
+          label="Password"
           sx={{
-            width: "326px",
-            height: "54px",
+            width: "384px",
+            height: "48px",
           }}
         />
 
         <InputPasswordRHF
-          name="newPassword"
           control={control}
+          name="newPassword"
+          placeholder="Confirm password"
+          label="Confirm password"
           sx={{
-            width: "326px",
-            height: "54px",
-            mb: "26px",
+            width: "384px",
+            height: "48px",
           }}
         />
-      </Box>
-      <Button
-        type="submit"
-        disabled={!formState.isValid}
-        variant={"outlined"}
-        sx={{
-          minWidth: "328px",
-          height: "40px",
-          mb: "10px",
-          ":hover": {
-            backgroundColor: "#FF5E1E",
+        <Button
+          type="submit"
+          variant={"outlined"}
+          sx={{
+            minWidth: "384px",
+            height: "48px",
+            textTransform: "none",
+            backgroundColor: "#FBAB34",
             color: "#FFFFFF",
-          },
-        }}
-      >
-        Sign Up
-      </Button>
-      <Checkbox defaultChecked />
-      <Typography>
-        I have read and accept the <b>Privacy Policy</b> and
-        <b>Terms of User Sign up.</b>
-      </Typography>
-      <Divider sx={{ width: "336px" }} />
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "flex-end",
-          gap: 5,
-          mt: "10px",
-          mb: "10px",
-          mr: "74px",
-        }}
-      >
-        <img alt="logo" src={""} style={{ width: "82.56px" }} />
-        Already have and account? <b>Sign in to</b> <b>Coin</b>
-        <b>Synch</b>
+            borderRadius: "32px",
+            p: "14px, 24px ",
+            ":hover": {
+              backgroundColor: "#FBAB34",
+              color: "#FFFFFF",
+            },
+          }}
+        >
+          Sign Up
+        </Button>
+        <Box
+          sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}
+        >
+          <Checkbox sx={{ color: "#FBAB34" }} />
+          <Typography
+            sx={{
+              color: "#5D6670",
+              fontSize: "14px",
+              fontWeight: 400,
+              lineHeight: "16px",
+              width: "350px",
+            }}
+          >
+            I have read and accept the
+            <b className="privacyPolicy">Privacy Policy</b> and
+            <b className="privacyPolicy">Terms of User Sign up.</b>
+          </Typography>
+        </Box>
+
+        <Typography
+          sx={{
+            color: "#5D6670",
+            fontSize: "14px",
+            fontWeight: 400,
+            lineHeight: "16px",
+          }}
+        >
+          Already have and account? <b className="signUpTo">Sign in to</b>
+          <b className="textColor2">Coin</b>
+          <b className="textColor4">Synch</b>
+        </Typography>
       </Box>
     </ModalComponent>
   );

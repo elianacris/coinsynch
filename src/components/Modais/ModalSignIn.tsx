@@ -1,10 +1,11 @@
 import { FieldValues, useForm } from "react-hook-form";
+import { Box, Button, Link, Typography } from "@mui/material";
+
 import ModalComponent from ".";
 import InputRHF from "../RHF/InputRHF";
-import { Box, Button, Divider, Typography } from "@mui/material";
 import InputPasswordRHF from "../RHF/InputRHFPassword";
 import { defaultValues } from "../../pages/Home/validators/signInSchema";
-
+import "./style.css";
 interface Props {
   open?: boolean;
   handleClose?: () => void;
@@ -20,7 +21,7 @@ export const ModalSignIn = ({ open, handleClose }: Props) => {
     defaultValues: defaultValues,
   });
 
-  const { control, handleSubmit, formState } = form;
+  const { control, handleSubmit } = form;
 
   const onSubmit = (data: FormData) => {
     console.log(data);
@@ -31,68 +32,91 @@ export const ModalSignIn = ({ open, handleClose }: Props) => {
         component={"form"}
         onSubmit={handleSubmit(onSubmit)}
         sx={{
-          width: "100%",
-          height: "100%",
           display: "flex",
           alignItems: "center",
-          justifyContent: "flex-start",
           flexDirection: "column",
+          gap: "24px",
+          p: "32px",
         }}
       >
         <Typography
           sx={{
-            fontFamily: "Roboto",
             fontWeight: 400,
             fontSize: "24px",
             lineHeight: "29px",
             letterSpacing: "0.18px",
-            color: "#FF5E1E",
+            color: "#5D6670",
           }}
         >
-          Sign in to CoinSynch
+          Sign in to <b className="textColor1">Coin</b>
+          <b className="textColor3">Synch</b>
         </Typography>
-
-        <InputRHF control={control} name="email" />
-
+        <InputRHF
+          control={control}
+          name="email"
+          label="Email"
+          sx={{ width: "384px", height: "48px" }}
+          placeholder="Email"
+        />
         <InputPasswordRHF
           name="password"
           control={control}
+          placeholder="Password"
+          label="Password"
           sx={{
-            width: "326px",
-            height: "54px",
+            width: "384px",
+            height: "48px",
           }}
         />
-      </Box>
-      <Button
-        type="submit"
-        disabled={!formState.isValid}
-        variant={"outlined"}
-        sx={{
-          minWidth: "328px",
-          height: "40px",
-          mb: "10px",
-          ":hover": {
-            backgroundColor: "#FF5E1E",
+        <Link
+          underline="none"
+          sx={{
+            color: "#8C8A97",
+            cursor: "pointer",
+            fontSize: "12px",
+            fontWeight: 400,
+            lineHeight: "14px",
+            ml: "280px",
+            mt: "-10px",
+            ":hover": {
+              color: "#8C8A97",
+            },
+          }}
+        >
+          Forgot password?
+        </Link>
+        <Button
+          type="submit"
+          variant={"outlined"}
+          sx={{
+            minWidth: "384px",
+            height: "48px",
+            textTransform: "none",
+            backgroundColor: "#FBAB34",
+            borderRadius: "32px",
+            p: "14px, 24px ",
             color: "#FFFFFF",
-          },
-        }}
-      >
-        Sign in
-      </Button>
-      <Divider sx={{ width: "336px" }} />
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "flex-end",
-          gap: 5,
-          mt: "10px",
-          mb: "10px",
-          mr: "74px",
-        }}
-      >
-        <img alt="logo" src={""} style={{ width: "82.56px" }} />
-        Don’t have an account? Sign up to CoinSynch
+            ":hover": {
+              backgroundColor: "#FBAB34",
+              color: "#FFFFFF",
+            },
+          }}
+        >
+          Sign in
+        </Button>
+
+        <Typography
+          sx={{
+            color: "#5D6670",
+            fontSize: "14px",
+            fontWeight: 400,
+            lineHeight: "16px",
+          }}
+        >
+          Don’t have an account? <b className="signUpTo">Sign up to</b>
+          <b className="textColor2">Coin</b>
+          <b className="textColor4">Synch</b>
+        </Typography>
       </Box>
     </ModalComponent>
   );

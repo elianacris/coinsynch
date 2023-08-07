@@ -1,3 +1,4 @@
+import { ReactNode, useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import { FieldValues, useForm } from "react-hook-form";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -13,12 +14,15 @@ import card4 from "../../assets/imageCards/card4.svg";
 import logoFooter from "../../assets/logoFooter.svg";
 import InputRHF from "../../components/RHF/InputRHF";
 import CarouselImage from "../../components/Slider/CarouselImage";
+import { ModalSignUp } from "../../components/Modais/ModalSignUp";
 
 interface IFormInputs {
   email: string;
 }
 
 export const Home = () => {
+  const [modalSignUp, setModalSignUp] = useState<ReactNode>("");
+
   const form = useForm<FieldValues>({
     mode: "all",
     defaultValues: { email: "" },
@@ -28,6 +32,12 @@ export const Home = () => {
 
   const onSubmit = (data: IFormInputs) => {
     console.log(data);
+  };
+
+  const handleOpenModalSignUp = () => {
+    setModalSignUp(
+      <ModalSignUp open={true} handleClose={() => setModalSignUp("")} />
+    );
   };
 
   return (
@@ -40,6 +50,7 @@ export const Home = () => {
         gridColumn: "span 12",
       }}
     >
+      {modalSignUp && modalSignUp}
       {/* primeiro box */}
       <Box
         sx={{
@@ -80,6 +91,7 @@ export const Home = () => {
         </Typography>
 
         <Button
+          onClick={handleOpenModalSignUp}
           variant="contained"
           sx={{
             borderRadius: "32px",
@@ -212,6 +224,7 @@ export const Home = () => {
           </Typography>
 
           <Button
+            onClick={handleOpenModalSignUp}
             variant="contained"
             sx={{
               borderRadius: "32px",

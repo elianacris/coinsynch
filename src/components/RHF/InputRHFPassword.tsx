@@ -1,5 +1,5 @@
+import { useState } from "react";
 import { useController } from "react-hook-form";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   FormControl,
   FormHelperText,
@@ -8,9 +8,10 @@ import {
   InputLabel,
   OutlinedInput,
 } from "@mui/material";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 
 import { InputRHFProps } from "../../models/inputRHF-model";
-import { useState } from "react";
 
 const InputPasswordRHF = (props: InputRHFProps) => {
   const { label, required, name, control, placeholder, sx, disabled } = props;
@@ -74,13 +75,13 @@ const InputPasswordRHF = (props: InputRHFProps) => {
               edge="end"
             >
               {values.showPassword ? (
-                <VisibilityOff
+                <VisibilityOffOutlinedIcon
                   sx={{
                     color: "rgba(0, 0, 0, 0.38)",
                   }}
                 />
               ) : (
-                <Visibility
+                <VisibilityOutlinedIcon
                   sx={{
                     color: "rgba(0, 0, 0, 0.38)",
                   }}

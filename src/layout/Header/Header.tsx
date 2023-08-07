@@ -1,3 +1,4 @@
+import { ReactNode, useState } from "react";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
@@ -5,9 +6,12 @@ import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import { styled } from "@mui/material/styles";
 // import MenuIcon from "@mui/icons-material/Menu";
 // import { Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 
 import logo from "../../assets/logo.png";
 import CarouselText from "../../components/Slider/CarouselText";
+import { ModalSignUp } from "../../components/Modais/ModalSignUp";
+import { ModalSignIn } from "../../components/Modais/ModalSignIn";
 
 const drawerWidth = 240;
 
@@ -33,6 +37,24 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 export default function Header() {
+  const [modalSignUp, setModalSignUp] = useState<ReactNode>("");
+  const [modalSignIn, setModalSignIn] = useState<ReactNode>("");
+
+  const handleOpenModalSignUp = () => {
+    setModalSignUp(
+      <ModalSignUp open={true} handleClose={() => setModalSignUp("")} />
+    );
+  };
+  const handleOpenModalSignIn = () => {
+    setModalSignIn(
+      <ModalSignIn open={true} handleClose={() => setModalSignIn("")} />
+    );
+  };
+
+  // const hideButton = () => {
+  //   if (hideClose === true) return true;
+  // };
+
   return (
     <AppBar
       position="fixed"
@@ -41,6 +63,9 @@ export default function Header() {
         backgroundColor: " #FFFFFF",
       }}
     >
+      {modalSignUp && modalSignUp}
+      {modalSignIn && modalSignIn}
+
       <Toolbar
         sx={{
           display: "grid",
@@ -50,39 +75,38 @@ export default function Header() {
           gridColumn: "span 12",
         }}
       >
-        {/* <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          onClick={handleDrawerOpen}
-          edge="start"
-          sx={{
-            marginRight: 5,
-            ':hover': {
-              backgroundColor: 'rgba(0, 0, 0, 0.12);',
-              color: ' #fff',
-            },
-          }}
-        >
-          <MenuIcon />
-        </IconButton> */}
+        {/* {hideButton && (
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            sx={{
+              marginRight: 5,
+              ":hover": {
+                backgroundColor: "rgba(0, 0, 0, 0.12);",
+                color: " #fff",
+              },
+            }}
+          >
+            <MenuIcon />
+          </IconButton>
+        )} */}
 
         <img src={logo} alt="" style={{ gridColumn: "span 2" }} />
-        <Button
-          variant="text"
+        <Typography
+          onClick={handleOpenModalSignIn}
           sx={{
+            fontFamily: "Roboto",
             gridColumn: "span 1",
             color: "#5D6670",
             height: "30px",
-            textTransform: "none",
-            ":hover": {
-              backgroundColor: " #Ffffff",
-              boxShadow: "none",
-              border: "none",
-            },
+            fontWeight: 400,
+            fontSize: "14px",
           }}
         >
           About us
-        </Button>
+        </Typography>
         <Button
           variant="text"
           sx={{
@@ -102,6 +126,7 @@ export default function Header() {
         <CarouselText />
 
         <Button
+          onClick={handleOpenModalSignIn}
           variant="text"
           sx={{
             gridColumn: "span 2",
@@ -118,6 +143,7 @@ export default function Header() {
         </Button>
 
         <Button
+          onClick={handleOpenModalSignUp}
           variant="contained"
           sx={{
             gridColumn: "span 2",
