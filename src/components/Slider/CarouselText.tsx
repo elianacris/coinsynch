@@ -22,13 +22,19 @@ const CarouselText: React.FC = () => {
   return (
     <Slider {...settings} className="mySlider">
       <div>
-        <Typography> BIT R$ 23,62 +7,082</Typography>
+        <Typography>
+          BIT R$ 23,62 <b className="styleText">-5,082</b>
+        </Typography>
       </div>
       <div>
-        <Typography> BIT R$ 23,62 +7,082</Typography>
+        <Typography>
+          BIT R$ 23,62 <b className="styleText1">+7,082</b>
+        </Typography>
       </div>
       <div>
-        <Typography> BIT R$ 23,62 +7,082</Typography>
+        <Typography>
+          BIT R$ 23,62 <b className="styleText">-5,082</b>
+        </Typography>
       </div>
     </Slider>
   );

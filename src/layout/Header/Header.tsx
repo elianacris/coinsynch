@@ -6,7 +6,7 @@ import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import { styled } from "@mui/material/styles";
 // import MenuIcon from "@mui/icons-material/Menu";
 // import { Typography } from "@mui/material";
-import { Typography } from "@mui/material";
+import { Link } from "@mui/material";
 
 import logo from "../../assets/logo.png";
 import CarouselText from "../../components/Slider/CarouselText";
@@ -73,6 +73,8 @@ export default function Header() {
           rowGap: 1,
           // columnGap: 2,
           gridColumn: "span 12",
+          justifyItems: "center",
+          alignContent: "center",
         }}
       >
         {/* {hideButton && (
@@ -94,8 +96,9 @@ export default function Header() {
         )} */}
 
         <img src={logo} alt="" style={{ gridColumn: "span 2" }} />
-        <Typography
-          onClick={handleOpenModalSignIn}
+        <Link
+          underline="none"
+          href="aboutUs"
           sx={{
             fontFamily: "Roboto",
             gridColumn: "span 1",
@@ -103,25 +106,32 @@ export default function Header() {
             height: "30px",
             fontWeight: 400,
             fontSize: "14px",
+            cursor: "pointer",
+            ":hover": {
+              color: "#5D6670",
+            },
           }}
         >
           About us
-        </Typography>
-        <Button
-          variant="text"
+        </Link>
+        <Link
+          underline="none"
+          href="about"
           sx={{
-            gridColumn: "span 2",
-            textTransform: "none",
+            fontFamily: "Roboto",
+            gridColumn: "span 1",
             color: "#5D6670",
             height: "30px",
+            fontWeight: 400,
+            fontSize: "14px",
+            cursor: "pointer",
             ":hover": {
-              backgroundColor: " #Ffffff",
-              boxShadow: "none",
+              color: "#5D6670",
             },
           }}
         >
           Top Cryptos
-        </Button>
+        </Link>
 
         <CarouselText />
 

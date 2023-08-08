@@ -43,7 +43,7 @@ export const Home = () => {
   return (
     <Box
       sx={{
-        mt: "64px",
+        mt: "120px",
         display: "grid",
         gridTemplateColumns: "repeat(12, 1fr)",
         rowGap: 1,
@@ -54,11 +54,9 @@ export const Home = () => {
       {/* primeiro box */}
       <Box
         sx={{
-          display: "grid",
-          gridTemplateColumns: "repeat(12, 1fr)",
-          rowGap: 1,
-          // columnGap: 2,
-          gridColumn: "span 12",
+          p: "24px",
+          ml: "112px ",
+          gridColumn: "span 6",
         }}
       >
         <Typography
@@ -69,7 +67,7 @@ export const Home = () => {
             fontWeight: 700,
             lineHeight: "56px",
             letterSpacing: "-0. 48px",
-            gridColumn: "span 12",
+            gridColumn: "span 1",
           }}
         >
           Lorem ipsum dolor sit amet, consectetur
@@ -77,12 +75,13 @@ export const Home = () => {
         <Typography
           variant="h5"
           sx={{
-            width: "590px",
+            width: "550px",
             color: "#5D6670",
             fontSize: "20px",
             fontWeight: 400,
             lineHeight: "32px",
-            gridColumn: "span 12",
+            gridColumn: "span 6",
+            mt: "24px",
           }}
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
@@ -104,29 +103,23 @@ export const Home = () => {
               backgroundColor: " #FBAB34",
               boxShadow: "none",
             },
-            // display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
+            mt: "32px",
             gridColumn: "span 1",
           }}
         >
           SIGN UP {<ArrowForwardIcon sx={{ width: "16px", height: "24px" }} />}
         </Button>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            gap: "8px",
-            gridColumn: "span 12",
-          }}
-        >
+        <Box sx={{ display: "flex", gap: "32px", mt: "84px" }}>
           <TextBlock name={"Cryptos"} />
           <TextBlock name={"NFTs"} />
           <TextBlock name={"Games"} />
         </Box>
-        <CarouselImage />
-        <img src={design} alt="" style={{ gridColumn: "span 12" }} />
       </Box>
+      <CarouselImage />
+      <Box sx={{ gridColumn: "span 2" }}>
+        <img src={design} alt="" style={{ width: "1349px" }} />
+      </Box>
+
       {/* segundo box */}
       <Box
         sx={{
@@ -134,18 +127,20 @@ export const Home = () => {
             "linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #F7F7F7 100%)",
           display: "grid",
           gridTemplateColumns: "repeat(12, 1fr)",
-          rowGap: 1,
+          // rowGap: 1,
           gridColumn: "span 12",
+          ml: "112px ",
+          mt: "120px",
+          // columnGap: "24px",
         }}
       >
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: "repeat(10, 1fr)",
+            gridTemplateColumns: "repeat(8, 1fr)",
             rowGap: 1,
-            gridColumn: "span 10",
+            gridColumn: "span 8",
             gap: "10px",
-            ml: 5,
           }}
         >
           <CardComponent
@@ -153,36 +148,35 @@ export const Home = () => {
             title="For your company"
             subtitle="Crypto Solutions"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, "
-            sx={{ gridColumn: "span 2" }}
+            sx={{ gridColumn: "span 3" }}
           />
           <CardComponent
             image={card2}
             title="For your company"
             subtitle="Crypto Solutions"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, "
-            sx={{ gridColumn: "span 2" }}
+            sx={{ gridColumn: "span 3" }}
           />
           <CardComponent
             image={card3}
             title="For your company"
             subtitle="Crypto Solutions"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, "
-            sx={{ gridColumn: "span 2" }}
+            sx={{ gridColumn: "span 3" }}
           />
           <CardComponent
             image={card4}
             title="For your company"
             subtitle="Crypto Solutions"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, "
-            sx={{ gridColumn: "span 2" }}
+            sx={{ gridColumn: "span 3" }}
           />
         </Box>
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: "repeat(12, 1fr)",
-            rowGap: 1,
-            gridColumn: "span 12",
+            gridTemplateColumns: "repeat(4)",
+            gridColumn: "span 4",
           }}
         >
           <Typography
@@ -191,6 +185,7 @@ export const Home = () => {
               fontSize: "20px",
               fontWeight: 700,
               lineHeight: "32px",
+              gridColumn: "span 1",
             }}
           >
             Lorem ipsum
@@ -203,6 +198,7 @@ export const Home = () => {
               fontWeight: 700,
               lineHeight: "48px",
               letterSpacing: "-0.4px",
+              gridColumn: "span 1",
             }}
           >
             Lorem ipsum
@@ -216,6 +212,7 @@ export const Home = () => {
               fontSize: "16px",
               fontWeight: 400,
               lineHeight: "24px",
+              gridColumn: "span 1",
             }}
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
@@ -227,6 +224,7 @@ export const Home = () => {
             onClick={handleOpenModalSignUp}
             variant="contained"
             sx={{
+              gridColumn: "span 1",
               borderRadius: "32px",
               minWidth: "176px",
               p: "14px 24px",
@@ -246,7 +244,16 @@ export const Home = () => {
         </Box>
       </Box>
       {/* terceiro box */}
-      <Box sx={{ background: "#fff" }}>
+      <Box
+        sx={{
+          background: "#fff",
+          display: "grid",
+          gridTemplateColumns: "repeat(12, 1fr)",
+          rowGap: 1,
+          gridColumn: "span 12",
+          p: "24px",
+        }}
+      >
         <TableComponent />
       </Box>
       {/* quarto box */}
@@ -254,9 +261,14 @@ export const Home = () => {
         sx={{
           fill: "linear-gradient(180deg, rgba(251, 171, 52, 0.20) 0%, rgba(251, 171, 52, 0.00) 100%)",
           background: "#FBAB34",
+          display: "grid",
+          gridTemplateColumns: "repeat(12, 1fr)",
+          rowGap: 1,
+          gridColumn: "span 12",
+          p: "24px",
         }}
       >
-        <Box sx={{ display: "flex", flexDirection: "column" }}>
+        <Box sx={{ gridColumn: "span 6" }}>
           <Typography
             sx={{
               color: "#FFFFFF",
@@ -294,36 +306,58 @@ export const Home = () => {
             purus sit amet luctus venenatis, lectus magna fringilla urna,
             porttitor
           </Typography>
-          <Box component={"form"} onSubmit={handleSubmit(onSubmit)}>
-            <InputRHF control={control} name={"email"} placeholder="Email" />
+        </Box>
+        <Box
+          component={"form"}
+          onSubmit={handleSubmit(onSubmit)}
+          sx={{
+            display: "grid",
+            // gridTemplateColumns: "repeat(6 )",
 
-            <Button
-              variant="contained"
-              sx={{
-                borderRadius: "32px",
-                minWidth: "384px",
-                p: "14px 24px",
-                height: "48px",
-                gap: "10px",
-                color: "white",
-                boxShadow: "0px 12px 24px 0px rgba(0, 0, 0, 0.10)",
-                ":hover": {
-                  backgroundColor: " #FBAB34",
-                  boxShadow: "none",
-                },
+            gridColumn: "span 6",
+          }}
+        >
+          <InputRHF
+            control={control}
+            name={"email"}
+            placeholder="Email"
+            sx={{
+              background: "#fff",
+              borderRadius: "5px",
+            }}
+          />
 
-                textTransform: "none",
-              }}
-            >
-              Subscribe
-            </Button>
-          </Box>
+          <Button
+            variant="contained"
+            sx={{
+              borderRadius: "32px",
+              minWidth: "384px",
+              p: "14px 24px",
+              height: "48px",
+              gap: "10px",
+              color: "white",
+              boxShadow: "0px 12px 24px 0px rgba(0, 0, 0, 0.10)",
+              ":hover": {
+                backgroundColor: " #FBAB34",
+                boxShadow: "none",
+              },
+              textTransform: "none",
+            }}
+          >
+            Subscribe
+          </Button>
         </Box>
       </Box>
       <footer
         style={{
           background: "#fff",
           boxShadow: "0px -4px 8px 0px rgba(77, 77, 77, 0.10)",
+          display: "grid",
+          gridTemplateColumns: "repeat(12, 1fr)",
+          // rowGap: 1,
+          gridColumn: "span 12",
+          padding: "12px ",
+          marginTop: "-10px",
         }}
       >
         <Typography
@@ -332,11 +366,12 @@ export const Home = () => {
             fontSize: "14px",
             fontWeight: 400,
             lineHeight: "16px",
+            gridColumn: "span 6",
           }}
         >
           Copyright © 2022 - All rights reserved
         </Typography>
-        <img src={logoFooter} alt="" />
+        <img src={logoFooter} alt="" style={{ gridColumn: "span 6" }} />
       </footer>
     </Box>
   );

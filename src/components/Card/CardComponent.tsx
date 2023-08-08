@@ -4,7 +4,7 @@ interface Props {
   title: string;
   subtitle: string;
   description: string;
-  sx: SxProps;
+  sx?: SxProps;
 }
 export const CardComponent = ({
   title,
@@ -16,6 +16,7 @@ export const CardComponent = ({
   return (
     <Card
       sx={{
+        p:'24px',
         borderradius: "6px",
         background: "#FFF",
         boxShadow: "0px 12px 24px 0px rgba(0, 0, 0, 0.05)",

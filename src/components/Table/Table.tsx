@@ -11,29 +11,39 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import AddIcon from "@mui/icons-material/Add";
 
+import { ButtonTable } from "./ButtonTable";
+import { ColumnCrypto } from "./ColumnCrypto";
+import image1 from "../../assets/imageTable/image1.svg";
+import image2 from "../../assets/imageTable/image2.svg";
+import image3 from "../../assets/imageTable/image3.svg";
+import image4 from "../../assets/imageTable/image4.svg";
+
 const StyledTableCell = styled(TableCell)(() => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: "#fff",
     color: "#8C8A97",
+    border: "none",
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 16,
+    border: "none",
   },
 }));
 
 const StyledTableRow = styled(TableRow)(() => ({
   "&:nth-of-type(odd)": {
     backgroundColor: "#F6F6F6",
+    border: "none",
   },
   // hide last border
   "&:last-child td, &:last-child th": {
-    border: 0,
+    border: "none",
   },
 }));
 
 interface Data {
   id: number;
-  crypto: string | ReactNode;
+  crypto: ReactNode;
   price: string;
   change: string;
   trade: ReactNode;
@@ -43,31 +53,31 @@ export default function TableComponent() {
   const [rows, setRows] = useState<Data[]>([
     {
       id: 1,
-      crypto: "Bitcoin BTC",
+      crypto: <ColumnCrypto title="Bitcoin BTC" image={image1} />,
       price: "US$ 25.499,52",
       change: "+5,65%",
-      trade: <Button>Buy</Button>,
+      trade: <ButtonTable />,
     },
     {
       id: 2,
-      crypto: "Ethereum ETH",
+      crypto: <ColumnCrypto title="Ethereum ETH" image={image4} />,
       price: "US$ 15.499,52",
       change: "-5,65%",
-      trade: <Button>Buy</Button>,
+      trade: <ButtonTable />,
     },
     {
       id: 3,
-      crypto: "Cardano ADA",
+      crypto: <ColumnCrypto title="Cardano ADA" image={image3} />,
       price: "US$ 5.499,52",
       change: "+5,65%",
-      trade: <Button>Buy</Button>,
+      trade: <ButtonTable />,
     },
     {
       id: 4,
-      crypto: "Solana SOL",
+      crypto: <ColumnCrypto title="Solana SOL" image={image2} />,
       price: "US$ 2.499,52",
       change: "-5,65%",
-      trade: <Button>Buy</Button>,
+      trade: <ButtonTable />,
     },
   ]);
 
@@ -83,7 +93,11 @@ export default function TableComponent() {
   };
 
   return (
-    <Box>
+    <Box
+      sx={{
+        gridColumn: "span 12",
+      }}
+    >
       <Typography
         sx={{
           fontSize: "32px",
@@ -91,19 +105,20 @@ export default function TableComponent() {
           lineHeight: "40px",
           color: "var(--text-base, #5D6670)",
           textAlign: "center",
+          mb: 2,
         }}
       >
         Top Cryptos
       </Typography>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} sx={{ boxShadow: "none" }}>
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
           <TableHead>
             <TableRow>
               <StyledTableCell>#</StyledTableCell>
-              <StyledTableCell align="right">Crypto</StyledTableCell>
-              <StyledTableCell align="right">Price</StyledTableCell>
-              <StyledTableCell align="right">Change</StyledTableCell>
-              <StyledTableCell align="right">Trade</StyledTableCell>
+              <StyledTableCell>Crypto</StyledTableCell>
+              <StyledTableCell>Price</StyledTableCell>
+              <StyledTableCell>Change</StyledTableCell>
+              <StyledTableCell>Trade</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -112,12 +127,10 @@ export default function TableComponent() {
                 <StyledTableCell component="th" scope="row">
                   {index + 1}
                 </StyledTableCell>
-                <StyledTableCell align="right" scope="row">
-                  {row.crypto}
-                </StyledTableCell>
-                <StyledTableCell align="right">{row.price}</StyledTableCell>
-                <StyledTableCell align="right">{row.change}</StyledTableCell>
-                <StyledTableCell align="right">{row.trade}</StyledTableCell>
+                <StyledTableCell>{row.crypto}</StyledTableCell>
+                <StyledTableCell>{row.price}</StyledTableCell>
+                <StyledTableCell>{row.change}</StyledTableCell>
+                <StyledTableCell>{row.trade}</StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>
@@ -128,13 +141,14 @@ export default function TableComponent() {
         onClick={handleAddRow}
         sx={{
           textTransform: "none",
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
           gap: "8px",
+          ml: "600px",
+          fontSize: "16px",
+          fontWeight: 400,
+          lineHeight: "24px",
         }}
       >
-        View more <AddIcon />
+        View more <AddIcon sx={{ width: "12px", height: "12px" }} />
       </Button>
     </Box>
   );
