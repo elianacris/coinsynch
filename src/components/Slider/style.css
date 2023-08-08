@@ -1,11 +1,31 @@
 .mySlider {
-    width: 290px;
-    grid-column: span 3;
-    margin-left: 250px;
-  }
-  
-  .mySlide {
-    text-align: center;
-    color: white;
-    background-color: black;
-  }
+  width: 290px;
+  grid-column: span 3;
+  margin-left: 250px;
+}
+
+.mySlide {
+  text-align: center;
+  color: white;
+  background-color: black;
+}
+
+.mySliderImage {
+  grid-column: span 6;
+  width: 450px;
+
+}
+
+.styleText {
+  text-decoration: none;
+  font-weight: 400;
+  margin-left: 5px;
+  color: #A12226
+}
+
+.styleText1 {
+  text-decoration: none;
+  font-weight: 400;
+  margin-left: 5px;
+  color: #149E55
+}

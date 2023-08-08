@@ -1,0 +1,54 @@
+.textColor1 {
+    color: var(--primary-500, #FBAB34);
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px;
+}
+
+
+
+
+.textColor2 {
+    color: var(--primary-500, #FBAB34);
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+    margin-left: 5px;
+}
+
+.textColor3 {
+    color: var(--secondary-500, #8C8A97);
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px;
+}
+
+.textColor4 {
+    color: var(--secondary-500, #8C8A97);
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+}
+
+.signUpTo {
+    color: var(--text-base, #5D6670);
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+}
+
+.privacyPolicy {
+
+    margin-left: 5px;
+}
+
