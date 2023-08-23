@@ -1,8 +1,8 @@
 import { Card, Typography } from "@mui/material";
 
-export const CardBalance = () => {
+export const CardBalance = (sx) => {
   return (
-    <Card>
+    <Card sx={{ ...sx }}>
       <img src="" alt="" />
       <Typography>Balance in US$</Typography>
       <Typography>(approximately)</Typography>
