@@ -9,6 +9,7 @@ import logo from "../../assets/logo.png";
 import CarouselText from "../../components/Slider/CarouselText";
 import { ModalSignUp } from "../../components/Modais/ModalSignUp";
 import { ModalSignIn } from "../../components/Modais/ModalSignIn";
+import { ComponentAvatar } from "../../layout/Header/ComponentAvatar";
 
 const drawerWidth = 240;
 
@@ -33,9 +34,12 @@ const AppBar = styled(MuiAppBar, {
     }),
   }),
 }));
+const settings = ["Logout"];
+
 export default function Header() {
   const [modalSignUp, setModalSignUp] = useState<ReactNode>("");
   const [modalSignIn, setModalSignIn] = useState<ReactNode>("");
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
   const handleOpenModalSignUp = () => {
     setModalSignUp(
@@ -46,6 +50,13 @@ export default function Header() {
     setModalSignIn(
       <ModalSignIn open={true} handleClose={() => setModalSignIn("")} />
     );
+  };
+
+  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElUser(event.currentTarget);
+  };
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
   };
 
   return (
@@ -108,6 +119,13 @@ export default function Header() {
         </Link>
 
         <CarouselText />
+
+        <ComponentAvatar
+          anchorElUser={anchorElUser}
+          settings={settings}
+          handleCloseUserMenu={handleCloseUserMenu}
+          handleOpenUserMenu={handleOpenUserMenu}
+        />
 
         <Button
           onClick={handleOpenModalSignIn}

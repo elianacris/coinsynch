@@ -100,7 +100,9 @@ export default function Sidebar() {
                     justifyContent: "center",
                   }}
                 >
-                  <Tooltip placement="right-end" title={item.name}>{item.icon}</Tooltip>
+                  <Tooltip placement="right-end" title={item.name}>
+                    {item.icon}
+                  </Tooltip>
                 </ListItemIcon>
               ))}
             </ListItemButton>

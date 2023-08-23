@@ -16,8 +16,8 @@ export default function Router() {
     <Routes>
       <Route element={<WithNav />}>
         <Route path={ROUTES.HOME} element={<Home />} />
+        <Route path={ROUTES.DASHBOARD} element={<Dashboard />} />
       </Route>
-      <Route path={ROUTES.DASHBOARD} element={<Dashboard />} />
     </Routes>
   );
 }
