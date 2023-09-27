@@ -6,7 +6,9 @@
 React com Vite, Typescript 
 
 # Objetivo 
-Landing page com carrosel de imagens, junto com o dashboard para visualização de dados sobre moedas, esse case é somente o front sem ligação com API 
+Landing page contém um carrosel de imagens e informações sobre as moedas no header e na home, possue dois modais para sign up e sign in do usuário com formulário de validação dos campos, 
+e no Dashboard temos a visualização de dados sobre moedas,
+Obs: esse case é somente o front-end, sem ligação com API do back-end.
 
 # Rotas 
 Acesso a Rota Home inserir / na url 
