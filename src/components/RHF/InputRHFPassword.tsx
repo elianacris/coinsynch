@@ -40,6 +40,7 @@ const InputPasswordRHF = (props: InputRHFProps) => {
     <FormControl
       variant="outlined"
       sx={{
+        color: "#ffff",
         ".MuiFormHelperText-root.Mui-error": {
           m: "5px 0 10px 0",
         },
@@ -77,13 +78,13 @@ const InputPasswordRHF = (props: InputRHFProps) => {
               {values.showPassword ? (
                 <VisibilityOffOutlinedIcon
                   sx={{
-                    color: "rgba(0, 0, 0, 0.38)",
+                    color: error ? "#d32f2f" : "rgba(0, 0, 0, 0.38)",
                   }}
                 />
               ) : (
                 <VisibilityOutlinedIcon
                   sx={{
-                    color: "rgba(0, 0, 0, 0.38)",
+                    color: error ? "#d32f2f" : "rgba(0, 0, 0, 0.38)",
                   }}
                 />
               )}

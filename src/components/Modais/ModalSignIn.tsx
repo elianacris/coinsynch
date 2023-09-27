@@ -4,7 +4,7 @@ import { Box, Button, Link, Typography } from "@mui/material";
 import ModalComponent from ".";
 import InputRHF from "../RHF/InputRHF";
 import InputPasswordRHF from "../RHF/InputRHFPassword";
-import { defaultValues } from "../../pages/Home/validators/signInSchema";
+import { signInFormArgs } from "../../pages/Home/validators/signInSchema";
 import "./style.css";
 interface Props {
   open?: boolean;
@@ -16,10 +16,7 @@ type FormData = {
 };
 
 export const ModalSignIn = ({ open, handleClose }: Props) => {
-  const form = useForm<FieldValues>({
-    mode: "all",
-    defaultValues: defaultValues,
-  });
+  const form = useForm<FieldValues | any>(signInFormArgs);
 
   const { control, handleSubmit } = form;
 

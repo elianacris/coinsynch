@@ -9,16 +9,16 @@ export const defaultValues: SignInTypes = {
   password: "",
 };
 
-export const signUpSchemaValidation = yup.object({
-  email: yup.string().email("Digite um email válido"),
-  password: yup.string().min(6, "Mínimo de 6 caracteres"),
+export const signInSchemaValidation = yup.object({
+  email: yup.string().email("Digite um e-mail válido").required(),
+  password: yup.string().min(6, "Mínimo de 6 caracteres").required(),
 });
 
-export const signUpFormArgs = {
+export const signInFormArgs = {
   mode,
   defaultValues: defaultValues,
-  resolver: yupResolver(signUpSchemaValidation),
+  resolver: yupResolver(signInSchemaValidation),
 };
 
 export interface SignInTypes
-  extends yup.InferType<typeof signUpSchemaValidation> {}
+  extends yup.InferType<typeof signInSchemaValidation> {}

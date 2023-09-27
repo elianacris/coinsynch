@@ -82,7 +82,7 @@ export default function Header() {
           alignContent: "center",
         }}
       >
-        <IconButton href='#home'>
+        <IconButton href="#home">
           <img src={logo} alt="" style={{ gridColumn: "span 2" }} />
         </IconButton>
         {location.pathname === "/" && (
