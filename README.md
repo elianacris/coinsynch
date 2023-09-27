@@ -1,5 +1,5 @@
 # Case Coinsynch
-![image](https://github.com/elianacris/coinsynch/assets/89935565/d7a2f141-5564-4845-ac3f-dddae379c1ea)
+![Uploading image.png…]()
 
 
 # Stacks 
