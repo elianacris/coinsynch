@@ -97,7 +97,7 @@ export default function TableDasboard() {
     <Box
       sx={{
         gridColumn: "span 12",
-        p:'32px'
+        p: "32px",
       }}
     >
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -121,11 +121,10 @@ export default function TableDasboard() {
           onClick={handleAddRow}
           sx={{
             textTransform: "none",
+            padding: " 8px 16px",
             gap: "8px",
-            ml: "600px",
             fontSize: "16px",
             fontWeight: 400,
-            lineHeight: "24px",
             color: "#ffff",
             borderRadius: "32px",
             backgroundColor: "#FBAB34",

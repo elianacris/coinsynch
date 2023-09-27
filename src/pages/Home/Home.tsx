@@ -53,6 +53,7 @@ export const Home = () => {
       {modalSignUp && modalSignUp}
       {/* primeiro box */}
       <Box
+        id="home"
         sx={{
           p: "24px",
           ml: "112px ",
@@ -122,6 +123,7 @@ export const Home = () => {
 
       {/* segundo box */}
       <Box
+        id="aboutUs"
         sx={{
           background:
             "linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #F7F7F7 100%)",
@@ -245,6 +247,7 @@ export const Home = () => {
       </Box>
       {/* terceiro box */}
       <Box
+        id="topCryptos"
         sx={{
           background: "#fff",
           display: "grid",

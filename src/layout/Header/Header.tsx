@@ -3,13 +3,14 @@ import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import { styled } from "@mui/material/styles";
-import { Link } from "@mui/material";
+import { IconButton, Link } from "@mui/material";
 
 import logo from "../../assets/logo.png";
 import CarouselText from "../../components/Slider/CarouselText";
 import { ModalSignUp } from "../../components/Modais/ModalSignUp";
 import { ModalSignIn } from "../../components/Modais/ModalSignIn";
 import { ComponentAvatar } from "../../layout/Header/ComponentAvatar";
+import { useLocation } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -40,6 +41,7 @@ export default function Header() {
   const [modalSignUp, setModalSignUp] = useState<ReactNode>("");
   const [modalSignIn, setModalSignIn] = useState<ReactNode>("");
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+  const location = useLocation();
 
   const handleOpenModalSignUp = () => {
     setModalSignUp(
@@ -80,89 +82,99 @@ export default function Header() {
           alignContent: "center",
         }}
       >
-        <img src={logo} alt="" style={{ gridColumn: "span 2" }} />
-        <Link
-          underline="none"
-          href="aboutUs"
-          sx={{
-            fontFamily: "Roboto",
-            gridColumn: "span 1",
-            color: "#5D6670",
-            height: "30px",
-            fontWeight: 400,
-            fontSize: "14px",
-            cursor: "pointer",
-            ":hover": {
-              color: "#5D6670",
-            },
-          }}
-        >
-          About us
-        </Link>
-        <Link
-          underline="none"
-          href="about"
-          sx={{
-            fontFamily: "Roboto",
-            gridColumn: "span 1",
-            color: "#5D6670",
-            height: "30px",
-            fontWeight: 400,
-            fontSize: "14px",
-            cursor: "pointer",
-            ":hover": {
-              color: "#5D6670",
-            },
-          }}
-        >
-          Top Cryptos
-        </Link>
+        <IconButton href='#home'>
+          <img src={logo} alt="" style={{ gridColumn: "span 2" }} />
+        </IconButton>
+        {location.pathname === "/" && (
+          <>
+            <Link
+              underline="none"
+              href="#aboutUs"
+              sx={{
+                fontFamily: "Roboto",
+                gridColumn: "span 1",
+                color: "#5D6670",
+                height: "30px",
+                fontWeight: 400,
+                fontSize: "14px",
+                cursor: "pointer",
+                ":hover": {
+                  color: "#5D6670",
+                },
+              }}
+            >
+              About us
+            </Link>
+            <Link
+              underline="none"
+              href="#topCryptos"
+              sx={{
+                fontFamily: "Roboto",
+                gridColumn: "span 1",
+                color: "#5D6670",
+                height: "30px",
+                fontWeight: 400,
+                fontSize: "14px",
+                cursor: "pointer",
+                ":hover": {
+                  color: "#5D6670",
+                },
+              }}
+            >
+              Top Cryptos
+            </Link>
 
-        <CarouselText />
+            <CarouselText />
+          </>
+        )}
+        {location.pathname === "/dashboard" && (
+          <ComponentAvatar
+            anchorElUser={anchorElUser}
+            settings={settings}
+            handleCloseUserMenu={handleCloseUserMenu}
+            handleOpenUserMenu={handleOpenUserMenu}
+          />
+        )}
+        {location.pathname === "/" && (
+          <>
+            <Button
+              onClick={handleOpenModalSignIn}
+              variant="text"
+              sx={{
+                gridColumn: "span 2",
+                textTransform: "none",
+                color: "#5D6670",
+                height: "30px",
+                ":hover": {
+                  backgroundColor: " #Ffffff",
+                  boxShadow: "none",
+                },
+              }}
+            >
+              Sign in
+            </Button>
 
-        <ComponentAvatar
-          anchorElUser={anchorElUser}
-          settings={settings}
-          handleCloseUserMenu={handleCloseUserMenu}
-          handleOpenUserMenu={handleOpenUserMenu}
-        />
-
-        <Button
-          onClick={handleOpenModalSignIn}
-          variant="text"
-          sx={{
-            gridColumn: "span 2",
-            textTransform: "none",
-            color: "#5D6670",
-            height: "30px",
-            ":hover": {
-              backgroundColor: " #Ffffff",
-              boxShadow: "none",
-            },
-          }}
-        >
-          Sign in
-        </Button>
-
-        <Button
-          onClick={handleOpenModalSignUp}
-          variant="contained"
-          sx={{
-            gridColumn: "span 2",
-            textTransform: "none",
-            color: "#fff",
-            padding: "8px 16px",
-            backgroundColor: " #FBAB34",
-            borderRadius: "32px",
-            boxShadow: "none",
-            ":hover": {
-              backgroundColor: " #FBAB34",
-              boxShadow: "none",
-            },
-          }}
-        >
-          Sign up
-        </Button>
+            <Button
+              onClick={handleOpenModalSignUp}
+              variant="contained"
+              sx={{
+                gridColumn: "span 2",
+                textTransform: "none",
+                color: "#fff",
+                padding: "8px 16px",
+                backgroundColor: " #FBAB34",
+                borderRadius: "32px",
+                boxShadow: "none",
+                ":hover": {
+                  backgroundColor: " #FBAB34",
+                  boxShadow: "none",
+                },
+              }}
+            >
+              Sign up
+            </Button>
+          </>
+        )}
       </Toolbar>
     </AppBar>
   );
