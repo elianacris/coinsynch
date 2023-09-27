@@ -2,16 +2,14 @@ import { ReactNode, useState } from "react";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
-// import IconButton from "@mui/material/IconButton";
 import { styled } from "@mui/material/styles";
-// import MenuIcon from "@mui/icons-material/Menu";
-// import { Typography } from "@mui/material";
 import { Link } from "@mui/material";
 
 import logo from "../../assets/logo.png";
 import CarouselText from "../../components/Slider/CarouselText";
 import { ModalSignUp } from "../../components/Modais/ModalSignUp";
 import { ModalSignIn } from "../../components/Modais/ModalSignIn";
+import { ComponentAvatar } from "../../layout/Header/ComponentAvatar";
 
 const drawerWidth = 240;
 
@@ -36,9 +34,12 @@ const AppBar = styled(MuiAppBar, {
     }),
   }),
 }));
+const settings = ["Logout"];
+
 export default function Header() {
   const [modalSignUp, setModalSignUp] = useState<ReactNode>("");
   const [modalSignIn, setModalSignIn] = useState<ReactNode>("");
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
   const handleOpenModalSignUp = () => {
     setModalSignUp(
@@ -51,9 +52,12 @@ export default function Header() {
     );
   };
 
-  // const hideButton = () => {
-  //   if (hideClose === true) return true;
-  // };
+  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElUser(event.currentTarget);
+  };
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
 
   return (
     <AppBar
@@ -71,30 +75,11 @@ export default function Header() {
           display: "grid",
           gridTemplateColumns: "repeat(12, 1fr)",
           rowGap: 1,
-          // columnGap: 2,
           gridColumn: "span 12",
           justifyItems: "center",
           alignContent: "center",
         }}
       >
-        {/* {hideButton && (
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: 5,
-              ":hover": {
-                backgroundColor: "rgba(0, 0, 0, 0.12);",
-                color: " #fff",
-              },
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-        )} */}
-
         <img src={logo} alt="" style={{ gridColumn: "span 2" }} />
         <Link
           underline="none"
@@ -134,6 +119,13 @@ export default function Header() {
         </Link>
 
         <CarouselText />
+
+        <ComponentAvatar
+          anchorElUser={anchorElUser}
+          settings={settings}
+          handleCloseUserMenu={handleCloseUserMenu}
+          handleOpenUserMenu={handleOpenUserMenu}
+        />
 
         <Button
           onClick={handleOpenModalSignIn}
