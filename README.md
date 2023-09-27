@@ -16,6 +16,6 @@ Acesso a Rota Dashboard inserir na url /dashboard
 Material MUI 
 
 # bibliotecas 
-Yup,  
+Yup,
 react-hook-form, 
 slick-carousel,
