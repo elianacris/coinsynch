@@ -1,12 +1,15 @@
+import { useTranslation } from "react-i18next";
+import { useForm } from "react-hook-form";
 import { Box, Button } from "@mui/material";
+
 import InputRHF from "../../../components/RHF/InputRHF";
 import { emailFormArgs } from "../validators/emailSchema";
-import { useForm } from "react-hook-form";
 interface IFormInputs {
   email: string;
 }
 
 export default function Form() {
+  const {t} = useTranslation()
   const form = useForm<any>(emailFormArgs);
 
   const { control, handleSubmit } = form;
@@ -57,7 +60,7 @@ export default function Form() {
           textTransform: "none",
         }}
       >
-        Subscribe
+        {t("button.subscribe")}
       </Button>
     </Box>
   );

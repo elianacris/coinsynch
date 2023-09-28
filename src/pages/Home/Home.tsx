@@ -1,4 +1,5 @@
 import { ReactNode, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Box, Button, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
@@ -16,6 +17,7 @@ import { ModalSignUp } from "../../components/Modais/ModalSignUp";
 import Form from "./components/Form";
 
 export const Home = () => {
+  const { t } = useTranslation();
   const [modalSignUp, setModalSignUp] = useState<ReactNode>("");
 
   const handleOpenModalSignUp = () => {
@@ -54,7 +56,7 @@ export const Home = () => {
             gridColumn: "span 1",
           }}
         >
-          Adquira Bitcoins e Invista no Futuro
+          {t("home.title")}
         </Typography>
         <Typography
           variant="h5"
@@ -68,9 +70,7 @@ export const Home = () => {
             mt: "24px",
           }}
         >
-          Bem-vindo ao nosso portal seguro e confiável para adquirir Bitcoins.
-          Descubra a liberdade financeira e o potencial de crescimento ao
-          investir na moeda digital mais valiosa do mundo.
+          {t("home.description")}
         </Typography>
 
         <Button
@@ -91,7 +91,8 @@ export const Home = () => {
             gridColumn: "span 1",
           }}
         >
-          SIGN UP {<ArrowForwardIcon sx={{ width: "16px", height: "24px" }} />}
+          {t("home.sign.up")}
+          {<ArrowForwardIcon sx={{ width: "16px", height: "24px" }} />}
         </Button>
         <Box sx={{ display: "flex", gap: "32px", mt: "20px", mb: 7 }}>
           <TextBlock name={"Cryptos"} />
@@ -174,8 +175,7 @@ export const Home = () => {
               gridColumn: "span 1",
             }}
           >
-            Nesta plataforma, queremos guiar você através da fascinante jornada
-            das criptomoedas
+            {t("about.title")}
           </Typography>
 
           <Typography
@@ -188,7 +188,7 @@ export const Home = () => {
               gridColumn: "span 1",
             }}
           >
-            Pronto para explorar o futuro das finanças?
+            {t("about.subtitle")}
           </Typography>
 
           <Typography
@@ -202,11 +202,7 @@ export const Home = () => {
               gridColumn: "span 1",
             }}
           >
-            Seja bem-vindo à era das moedas digitais, onde a inovação encontra a
-            segurança. Os Bitcoins oferecem a promessa de transações mais
-            rápidas, baixas taxas e a eliminação de intermediários. É a sua
-            chance de fazer parte de uma mudança transformadora que moldará o
-            futuro financeiro.
+            {t("about.description")}
           </Typography>
 
           <Button
@@ -227,7 +223,7 @@ export const Home = () => {
               },
             }}
           >
-            Sign up Now
+            {t("about.sign.up")}
           </Button>
         </Box>
       </Box>
@@ -266,7 +262,7 @@ export const Home = () => {
               lineHeight: "32px",
             }}
           >
-            Invista no Futuro
+            {t("contact.title")}
           </Typography>
 
           <Typography
@@ -278,7 +274,7 @@ export const Home = () => {
               letterSpacing: "-0.4px",
             }}
           >
-            Adquira Bitcoins
+            {t("contact.subtitle")}
           </Typography>
 
           <Typography
@@ -291,11 +287,7 @@ export const Home = () => {
               lineHeight: "24px",
             }}
           >
-            Navegue por nosso site para aprender mais sobre as Bitcoins, desde
-            conceitos básicos até estratégias avançadas de investimento. Este é
-            o seu ponto de partida para a revolução digital do dinheiro. Estamos
-            aqui para responder suas perguntas, fornecer orientações e ajudá-lo
-            a se tornar parte desse emocionante movimento.
+            {t("contact.description")}
           </Typography>
         </Box>
         <Box sx={{ gridColumn: "span 6" }}>

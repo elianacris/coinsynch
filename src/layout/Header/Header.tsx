@@ -1,16 +1,18 @@
 import { ReactNode, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import { styled } from "@mui/material/styles";
-import { IconButton, Link } from "@mui/material";
+import { Box, IconButton, Link } from "@mui/material";
 
 import logo from "../../assets/logo.png";
 import CarouselText from "../../components/Slider/CarouselText";
 import { ModalSignUp } from "../../components/Modais/ModalSignUp";
 import { ModalSignIn } from "../../components/Modais/ModalSignIn";
 import { ComponentAvatar } from "../../layout/Header/ComponentAvatar";
-import { useLocation } from "react-router-dom";
+import ButtonTranslation from "../../components/ButtonTranslation/ButtonTranslation";
 
 const drawerWidth = 240;
 
@@ -38,10 +40,11 @@ const AppBar = styled(MuiAppBar, {
 const settings = ["Logout"];
 
 export default function Header() {
+  const location = useLocation();
+  const { t } = useTranslation();
   const [modalSignUp, setModalSignUp] = useState<ReactNode>("");
   const [modalSignIn, setModalSignIn] = useState<ReactNode>("");
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
-  const location = useLocation();
 
   const handleOpenModalSignUp = () => {
     setModalSignUp(
@@ -89,7 +92,7 @@ export default function Header() {
         }}
       >
         <IconButton onClick={() => scrollToSection("home")}>
-          <img src={logo} alt="" style={{ gridColumn: "span 2" }} />
+          <img src={logo} alt="" style={{ gridColumn: "span 1" }} />
         </IconButton>
         {location.pathname === "/" && (
           <>
@@ -110,7 +113,7 @@ export default function Header() {
                 },
               }}
             >
-              Sobre
+              {t("header.about")}
             </Link>
             <Link
               underline="none"
@@ -159,13 +162,14 @@ export default function Header() {
                 },
               }}
             >
-              Sign in
+              {t("button.sign.in")}
             </Button>
 
             <Button
               onClick={handleOpenModalSignUp}
               variant="contained"
               sx={{
+                ml: 2,
                 gridColumn: "span 1",
                 textTransform: "none",
                 color: "#fff",
@@ -179,10 +183,13 @@ export default function Header() {
                 },
               }}
             >
-              Sign up
+              {t("button.sign.up")}
             </Button>
           </>
         )}
+        <Box sx={{ gridColumn: "span 1", ml: 5 }}>
+          <ButtonTranslation />
+        </Box>
       </Toolbar>
     </AppBar>
   );
