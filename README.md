@@ -1,6 +1,6 @@
 # Case Coinsynch
-![image](https://github.com/elianacris/coinsynch/assets/89935565/eb87231c-f295-4671-b334-d7cba1696676)
-
+![image](https://github.com/elianacris/coinsynch/assets/89935565/0d19c5f0-6fbb-46ed-8e62-94fe18553da5)
+OBS: Textos meramente ilustrativos
 
 # Stacks 
 React com Vite, Typescript 
