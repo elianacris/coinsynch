@@ -11,7 +11,7 @@ e no Dashboard temos a visualização de dados sobre moedas,
 Obs: esse case é somente o front-end, sem ligação com API do back-end.
 
 # Rotas 
-Acesso a Rota Home inserir / na url 
+Acesso a Rota Home inserir / na url  
 Acesso a Rota Dashboard inserir na url /dashboard
 
 # Design system
