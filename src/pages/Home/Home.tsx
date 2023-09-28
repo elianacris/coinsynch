@@ -1,6 +1,5 @@
 import { ReactNode, useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
-import { FieldValues, useForm } from "react-hook-form";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 import { TextBlock } from "../../components/TextBlock";
@@ -12,27 +11,12 @@ import card2 from "../../assets/imageCards/card2.svg";
 import card3 from "../../assets/imageCards/card3.svg";
 import card4 from "../../assets/imageCards/card4.svg";
 import logoFooter from "../../assets/logoFooter.svg";
-import InputRHF from "../../components/RHF/InputRHF";
 import CarouselImage from "../../components/Slider/CarouselImage";
 import { ModalSignUp } from "../../components/Modais/ModalSignUp";
-
-interface IFormInputs {
-  email: string;
-}
+import Form from "./components/Form";
 
 export const Home = () => {
   const [modalSignUp, setModalSignUp] = useState<ReactNode>("");
-
-  const form = useForm<FieldValues>({
-    mode: "all",
-    defaultValues: { email: "" },
-  });
-
-  const { control, handleSubmit } = form;
-
-  const onSubmit = (data: IFormInputs) => {
-    console.log(data);
-  };
 
   const handleOpenModalSignUp = () => {
     setModalSignUp(
@@ -43,7 +27,7 @@ export const Home = () => {
   return (
     <Box
       sx={{
-        mt: "120px",
+        mt: "80px",
         display: "grid",
         gridTemplateColumns: "repeat(12, 1fr)",
         rowGap: 1,
@@ -55,7 +39,6 @@ export const Home = () => {
       <Box
         id="home"
         sx={{
-          p: "24px",
           ml: "112px ",
           gridColumn: "span 6",
         }}
@@ -71,7 +54,7 @@ export const Home = () => {
             gridColumn: "span 1",
           }}
         >
-          Lorem ipsum dolor sit amet, consectetur
+          Adquira Bitcoins e Invista no Futuro
         </Typography>
         <Typography
           variant="h5"
@@ -85,9 +68,9 @@ export const Home = () => {
             mt: "24px",
           }}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
-          purus sit amet luctus venenatis, lectus magna fringilla urna,
-          porttitor
+          Bem-vindo ao nosso portal seguro e confiável para adquirir Bitcoins.
+          Descubra a liberdade financeira e o potencial de crescimento ao
+          investir na moeda digital mais valiosa do mundo.
         </Typography>
 
         <Button
@@ -110,15 +93,16 @@ export const Home = () => {
         >
           SIGN UP {<ArrowForwardIcon sx={{ width: "16px", height: "24px" }} />}
         </Button>
-        <Box sx={{ display: "flex", gap: "32px", mt: "84px" }}>
+        <Box sx={{ display: "flex", gap: "32px", mt: "20px", mb: 7 }}>
           <TextBlock name={"Cryptos"} />
           <TextBlock name={"NFTs"} />
           <TextBlock name={"Games"} />
         </Box>
       </Box>
       <CarouselImage />
-      <Box sx={{ gridColumn: "span 2" }}>
-        <img src={design} alt="" style={{ width: "1349px" }} />
+
+      <Box sx={{ gridColumn: "span 2", mt: "-100px" }}>
+        <img src={design} alt="" style={{ width: "1349px", zIndex: 500 }} />
       </Box>
 
       {/* segundo box */}
@@ -129,11 +113,8 @@ export const Home = () => {
             "linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #F7F7F7 100%)",
           display: "grid",
           gridTemplateColumns: "repeat(12, 1fr)",
-          // rowGap: 1,
           gridColumn: "span 12",
-          ml: "112px ",
-          mt: "120px",
-          // columnGap: "24px",
+          p: "32px",
         }}
       >
         <Box
@@ -142,7 +123,7 @@ export const Home = () => {
             gridTemplateColumns: "repeat(8, 1fr)",
             rowGap: 1,
             gridColumn: "span 8",
-            gap: "10px",
+            gap: "12px",
           }}
         >
           <CardComponent
@@ -176,9 +157,12 @@ export const Home = () => {
         </Box>
         <Box
           sx={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4)",
             gridColumn: "span 4",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            justifyItems: "center",
+            gap: "24px",
           }}
         >
           <Typography
@@ -190,7 +174,8 @@ export const Home = () => {
               gridColumn: "span 1",
             }}
           >
-            Lorem ipsum
+            Nesta plataforma, queremos guiar você através da fascinante jornada
+            das criptomoedas
           </Typography>
 
           <Typography
@@ -203,7 +188,7 @@ export const Home = () => {
               gridColumn: "span 1",
             }}
           >
-            Lorem ipsum
+            Pronto para explorar o futuro das finanças?
           </Typography>
 
           <Typography
@@ -217,9 +202,11 @@ export const Home = () => {
               gridColumn: "span 1",
             }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
-            purus sit amet luctus venenatis, lectus magna fringilla urna,
-            porttitor
+            Seja bem-vindo à era das moedas digitais, onde a inovação encontra a
+            segurança. Os Bitcoins oferecem a promessa de transações mais
+            rápidas, baixas taxas e a eliminação de intermediários. É a sua
+            chance de fazer parte de uma mudança transformadora que moldará o
+            futuro financeiro.
           </Typography>
 
           <Button
@@ -232,13 +219,12 @@ export const Home = () => {
               p: "14px 24px",
               height: "48px",
               gap: "10px",
+              textTransform: "none",
               color: "white",
               ":hover": {
                 backgroundColor: " #FBAB34",
                 boxShadow: "none",
               },
-
-              textTransform: "none",
             }}
           >
             Sign up Now
@@ -280,7 +266,7 @@ export const Home = () => {
               lineHeight: "32px",
             }}
           >
-            Lorem ipsum
+            Invista no Futuro
           </Typography>
 
           <Typography
@@ -292,7 +278,7 @@ export const Home = () => {
               letterSpacing: "-0.4px",
             }}
           >
-            Lorem ipsum
+            Adquira Bitcoins
           </Typography>
 
           <Typography
@@ -305,50 +291,15 @@ export const Home = () => {
               lineHeight: "24px",
             }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
-            purus sit amet luctus venenatis, lectus magna fringilla urna,
-            porttitor
+            Navegue por nosso site para aprender mais sobre as Bitcoins, desde
+            conceitos básicos até estratégias avançadas de investimento. Este é
+            o seu ponto de partida para a revolução digital do dinheiro. Estamos
+            aqui para responder suas perguntas, fornecer orientações e ajudá-lo
+            a se tornar parte desse emocionante movimento.
           </Typography>
         </Box>
-        <Box
-          component={"form"}
-          onSubmit={handleSubmit(onSubmit)}
-          sx={{
-            display: "grid",
-            // gridTemplateColumns: "repeat(6 )",
-
-            gridColumn: "span 6",
-          }}
-        >
-          <InputRHF
-            control={control}
-            name={"email"}
-            placeholder="Email"
-            sx={{
-              background: "#fff",
-              borderRadius: "5px",
-            }}
-          />
-
-          <Button
-            variant="contained"
-            sx={{
-              borderRadius: "32px",
-              minWidth: "384px",
-              p: "14px 24px",
-              height: "48px",
-              gap: "10px",
-              color: "white",
-              boxShadow: "0px 12px 24px 0px rgba(0, 0, 0, 0.10)",
-              ":hover": {
-                backgroundColor: " #FBAB34",
-                boxShadow: "none",
-              },
-              textTransform: "none",
-            }}
-          >
-            Subscribe
-          </Button>
+        <Box sx={{ gridColumn: "span 6" }}>
+          <Form />
         </Box>
       </Box>
       <footer
@@ -357,7 +308,6 @@ export const Home = () => {
           boxShadow: "0px -4px 8px 0px rgba(77, 77, 77, 0.10)",
           display: "grid",
           gridTemplateColumns: "repeat(12, 1fr)",
-          // rowGap: 1,
           gridColumn: "span 12",
           padding: "12px ",
           marginTop: "-10px",

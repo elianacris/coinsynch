@@ -57,7 +57,7 @@ export const ModalSignUp = ({ open, handleClose }: Props) => {
           name="name"
           label="Name"
           placeholder="Name"
-          sx={{ width: "384px", height: "48px", mb: "-5px" }}
+          sx={{ width: "384px", height: "48px", mt: "-10px", mb: "-5px" }}
         />
         <InputRHF
           control={control}
@@ -92,7 +92,6 @@ export const ModalSignUp = ({ open, handleClose }: Props) => {
           type="submit"
           variant={"outlined"}
           sx={{
-          
             minWidth: "384px",
             height: "48px",
             textTransform: "none",
@@ -133,6 +132,8 @@ export const ModalSignUp = ({ open, handleClose }: Props) => {
             fontSize: "14px",
             fontWeight: 400,
             lineHeight: "16px",
+            mt:'-10px',
+            mb: 2
           }}
         >
           Already have and account? <b className="signUpTo">Sign in to</b>

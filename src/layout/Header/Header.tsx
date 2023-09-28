@@ -61,9 +61,15 @@ export default function Header() {
     setAnchorElUser(null);
   };
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    element.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <AppBar
-      position="fixed"
+      id="home"
+      position="static"
       sx={{
         boxShadow: "none",
         backgroundColor: " #FFFFFF",
@@ -82,15 +88,16 @@ export default function Header() {
           alignContent: "center",
         }}
       >
-        <IconButton href="#home">
+        <IconButton onClick={() => scrollToSection("home")}>
           <img src={logo} alt="" style={{ gridColumn: "span 2" }} />
         </IconButton>
         {location.pathname === "/" && (
           <>
             <Link
               underline="none"
-              href="#aboutUs"
+              onClick={() => scrollToSection("aboutUs")}
               sx={{
+                mt: 1,
                 fontFamily: "Roboto",
                 gridColumn: "span 1",
                 color: "#5D6670",
@@ -103,12 +110,13 @@ export default function Header() {
                 },
               }}
             >
-              About us
+              Sobre
             </Link>
             <Link
               underline="none"
-              href="#topCryptos"
+              onClick={() => scrollToSection("topCryptos")}
               sx={{
+                mt: 1,
                 fontFamily: "Roboto",
                 gridColumn: "span 1",
                 color: "#5D6670",
@@ -141,7 +149,7 @@ export default function Header() {
               onClick={handleOpenModalSignIn}
               variant="text"
               sx={{
-                gridColumn: "span 2",
+                gridColumn: "span 1",
                 textTransform: "none",
                 color: "#5D6670",
                 height: "30px",
@@ -158,7 +166,7 @@ export default function Header() {
               onClick={handleOpenModalSignUp}
               variant="contained"
               sx={{
-                gridColumn: "span 2",
+                gridColumn: "span 1",
                 textTransform: "none",
                 color: "#fff",
                 padding: "8px 16px",

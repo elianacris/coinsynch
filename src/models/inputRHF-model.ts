@@ -1,4 +1,4 @@
-import { SxProps, Theme } from "@mui/material";
+import { SxProps, TextFieldVariants, Theme } from "@mui/material";
 import { ChangeEvent, FocusEvent } from "react";
 import {
   Control,
@@ -40,6 +40,7 @@ export interface InputRHFProps extends BaseRHFProps {
   autoComplete?: string;
   removeAnswer?: () => void;
   disabledRemoveAnswer?: boolean;
+  variant?: TextFieldVariants;
 }
 
 export interface InputMaskRHFProps extends InputRHFProps {

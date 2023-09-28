@@ -18,6 +18,7 @@ export const TextBlock = ({ name }: Props) => {
         width: "70px",
         borderRadius: "4px",
         textAlign: "center",
+        zIndex: 600
       }}
     >
       {name}

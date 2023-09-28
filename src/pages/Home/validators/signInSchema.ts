@@ -10,7 +10,10 @@ export const defaultValues: SignInTypes = {
 };
 
 export const signInSchemaValidation = yup.object({
-  email: yup.string().email("Digite um e-mail válido").required(),
+  email: yup
+    .string()
+    .email("Digite um e-mail válido")
+    .required("Digite um e-mail válido"),
   password: yup.string().min(6, "Mínimo de 6 caracteres").required(),
 });
 

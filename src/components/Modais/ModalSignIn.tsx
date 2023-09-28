@@ -32,7 +32,7 @@ export const ModalSignIn = ({ open, handleClose }: Props) => {
           display: "flex",
           alignItems: "center",
           flexDirection: "column",
-          gap: "24px",
+          gap: "32px",
           p: "32px",
         }}
       >
