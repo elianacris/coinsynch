@@ -11,7 +11,7 @@ export const ButtonTable = () => {
         width: "80px",
         padding: "8px 16px",
         ":hover": {
-          backgroundColor: "#149E55",
+          backgroundColor: "#26af64f4",
           color: "#fff",
         },
       }}

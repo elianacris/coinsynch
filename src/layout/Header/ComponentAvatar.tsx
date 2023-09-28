@@ -23,7 +23,7 @@ export const ComponentAvatar = ({
   anchorElUser,
 }: Props) => {
   return (
-    <Box sx={{ gridColumn: "span 2" }}>
+    <Box sx={{ gridColumn: "span 10" }}>
       <Tooltip title="Open settings">
         <IconButton
           onClick={handleOpenUserMenu}

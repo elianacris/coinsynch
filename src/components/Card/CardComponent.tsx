@@ -16,7 +16,7 @@ export const CardComponent = ({
   return (
     <Card
       sx={{
-        p:'24px',
+        p: "24px",
         borderradius: "6px",
         background: "#FFF",
         boxShadow: "0px 12px 24px 0px rgba(0, 0, 0, 0.05)",
@@ -46,7 +46,7 @@ export const CardComponent = ({
       </Typography>
       <Typography
         sx={{
-          width: "232px",
+          width: "150px",
           fontSize: "16px",
           fontWeight: 400,
           lineHeight: "24px",

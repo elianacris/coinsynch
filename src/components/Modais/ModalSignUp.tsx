@@ -3,7 +3,7 @@ import ModalComponent from ".";
 import InputPasswordRHF from "../RHF/InputRHFPassword";
 import InputRHF from "../RHF/InputRHF";
 import { FieldValues, useForm } from "react-hook-form";
-import { defaultValues } from "../../pages/Home/validators/signUpSchema";
+import { signUpFormArgs } from "../../pages/Home/validators/signUpSchema";
 import "./style.css";
 // import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 // import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
@@ -19,10 +19,7 @@ type FormData = {
 };
 
 export const ModalSignUp = ({ open, handleClose }: Props) => {
-  const form = useForm<FieldValues>({
-    mode: "all",
-    defaultValues: defaultValues,
-  });
+  const form = useForm<FieldValues | any>(signUpFormArgs);
 
   const { control, handleSubmit } = form;
 
@@ -39,7 +36,7 @@ export const ModalSignUp = ({ open, handleClose }: Props) => {
           display: "flex",
           alignItems: "center",
           flexDirection: "column",
-          gap: "24px",
+          gap: "38px",
           p: "32px",
         }}
       >
@@ -60,7 +57,7 @@ export const ModalSignUp = ({ open, handleClose }: Props) => {
           name="name"
           label="Name"
           placeholder="Name"
-          sx={{ width: "384px", height: "48px", mb: "-5px" }}
+          sx={{ width: "384px", height: "48px", mt: "-10px", mb: "-5px" }}
         />
         <InputRHF
           control={control}
@@ -135,6 +132,8 @@ export const ModalSignUp = ({ open, handleClose }: Props) => {
             fontSize: "14px",
             fontWeight: 400,
             lineHeight: "16px",
+            mt:'-10px',
+            mb: 2
           }}
         >
           Already have and account? <b className="signUpTo">Sign in to</b>
