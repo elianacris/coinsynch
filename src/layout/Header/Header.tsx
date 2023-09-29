@@ -74,7 +74,10 @@ export default function Header() {
       id="home"
       position="static"
       sx={{
-        boxShadow: "none",
+        boxShadow:
+          location.pathname === "/"
+            ? "none"
+            : "0px 4px 8px 0px rgba(77, 77, 77, 0.10)",
         backgroundColor: " #FFFFFF",
       }}
     >

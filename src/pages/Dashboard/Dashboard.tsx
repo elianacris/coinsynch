@@ -6,20 +6,24 @@ import { CardNews } from "./components/Cards/CardNews";
 
 export const Dashboard = () => {
   return (
-    <Box
-      sx={{
-        display: "grid",
-        gridTemplateColumns: "repeat(12, 1fr)",
-        rowGap: 1,
-        mt: "100px",
-        gridColumn: "span 12",
-      }}
-    >
-      <CardBalance sx={{ gridColumn: "span 4" }} />
-      <CardDailyVariation sx={{ gridColumn: "span 4" }} />
-      <CardNews sx={{ gridColumn: "span 4" }} />
+    <Box>
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "repeat(12, 1fr)",
+          rowGap: 1,
+          // mt: "100px",
+          gridColumn: "span 12",
+          columnGap: 2,
+          p: "32px",
+        }}
+      >
+        <CardBalance sx={{ gridColumn: "span 4" }} />
+        <CardDailyVariation sx={{ gridColumn: "span 4" }} />
+        <CardNews sx={{ gridColumn: "span 4" }} />
 
-      <TableDasboard />
+        <TableDasboard />
+      </Box>
       <footer
         style={{
           background: "#fff",
@@ -30,7 +34,6 @@ export const Dashboard = () => {
           gridColumn: "span 12",
           padding: "12px ",
           marginTop: "-10px",
-  
         }}
       >
         <Typography
