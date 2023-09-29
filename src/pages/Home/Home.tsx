@@ -244,8 +244,7 @@ export const Home = () => {
       {/* quarto box */}
       <Box
         sx={{
-          fill: "linear-gradient(180deg, rgba(251, 171, 52, 0.20) 0%, rgba(251, 171, 52, 0.00) 100%)",
-          background: "#FBAB34",
+          background: "  linear-gradient(to right, #FBAB34, #f0821c)",
           display: "grid",
           gridTemplateColumns: "repeat(12, 1fr)",
           rowGap: 1,
