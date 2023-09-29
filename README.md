@@ -1,13 +1,16 @@
 # Case Coinsynch
-![image](https://github.com/elianacris/coinsynch/assets/89935565/0d19c5f0-6fbb-46ed-8e62-94fe18553da5)
+![image](https://github.com/elianacris/coinsynch/assets/89935565/aec4e087-bb38-4820-a9f2-ed111ba38fb5)
+
+![image](https://github.com/elianacris/coinsynch/assets/89935565/e3a9ca55-bce3-4712-90dc-8e09ae706a2e)
+
 OBS: Textos meramente ilustrativos
 
 # Stacks 
 React com Vite, Typescript 
 
 # Objetivo 
-Landing page contém um carrosel de imagens e informações sobre as moedas no header e na home, possue dois modais para sign up e sign in do usuário com formulário de validação dos campos, 
-e no Dashboard temos a visualização de dados sobre moedas,
+Landing page contém um carrosel de imagens e informações sobre as moedas no header e na home, possue dois modais para sign up e sign in do usuário com formulário de validação dos campos, botão de internacionalização e no Dashboard temos a visualização de dados sobre moedas. 
+
 Obs: esse case é somente o front-end, sem ligação com API do back-end.
 
 # Rotas 
@@ -21,3 +24,4 @@ Material MUI
 Yup,
 react-hook-form, 
 slick-carousel,
+i18next
