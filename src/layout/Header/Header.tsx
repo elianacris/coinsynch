@@ -12,7 +12,7 @@ import CarouselText from "../../components/Slider/CarouselText";
 import { ModalSignUp } from "../../components/Modais/ModalSignUp";
 import { ModalSignIn } from "../../components/Modais/ModalSignIn";
 import { ComponentAvatar } from "../../layout/Header/ComponentAvatar";
-import ButtonTranslation from "../../components/ButtonTranslation/ButtonTranslation";
+import ButtonTranslation from "../../components/Buttons/ButtonTranslation/ButtonTranslation";
 
 const drawerWidth = 240;
 
@@ -183,10 +183,10 @@ export default function Header() {
                 ":hover": {
                   backgroundColor: " #FBAB34",
                   boxShadow: "none",
-                },
+                }
               }}
             >
-              {t("button.sign.up")}
+              Sign up
             </Button>
           </>
         )}

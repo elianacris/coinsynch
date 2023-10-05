@@ -1,11 +1,12 @@
 import { FieldValues, useForm } from "react-hook-form";
-import { Box, Button, Link, Typography } from "@mui/material";
+import { Box, Link, Typography } from "@mui/material";
 
 import ModalComponent from ".";
 import InputRHF from "../RHF/InputRHF";
 import InputPasswordRHF from "../RHF/InputRHFPassword";
 import { signInFormArgs } from "../../pages/Home/validators/signInSchema";
 import "./style.css";
+import ButtonSubmit from "../Buttons/ButtonSubmit/Button";
 interface Props {
   open?: boolean;
   handleClose?: () => void;
@@ -82,25 +83,7 @@ export const ModalSignIn = ({ open, handleClose }: Props) => {
         >
           Forgot password?
         </Link>
-        <Button
-          type="submit"
-          variant={"outlined"}
-          sx={{
-            minWidth: "384px",
-            height: "48px",
-            textTransform: "none",
-            backgroundColor: "#FBAB34",
-            borderRadius: "32px",
-            p: "14px, 24px ",
-            color: "#FFFFFF",
-            ":hover": {
-              backgroundColor: "#FBAB34",
-              color: "#FFFFFF",
-            },
-          }}
-        >
-          Sign in
-        </Button>
+        <ButtonSubmit name="Sign In" />
 
         <Typography
           sx={{
