@@ -15,7 +15,7 @@ Obs: esse case é somente o front-end, sem ligação com API do back-end.
 
 # Rotas 
 Acesso a Rota Home inserir / na url  
-Acesso a Rota Dashboard inserir na url /dashboard
+Acesso a Rota Dashboard inserir na url /dashboard ou através da entrada do usuário clicando no botão Sign In no Header
 
 # Design system
 Material MUI 
