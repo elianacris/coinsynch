@@ -10,6 +10,7 @@ import "./style.css";
 interface Props {
   open?: boolean;
   handleClose?: () => void;
+
 }
 type FormData = {
   name: string;
@@ -18,7 +19,8 @@ type FormData = {
   newPassword: string;
 };
 
-export const ModalSignUp = ({ open, handleClose }: Props) => {
+export const ModalSignUp = ({ open, handleClose,  }: Props) => {
+
   const form = useForm<FieldValues | any>(signUpFormArgs);
 
   const { control, handleSubmit } = form;
@@ -132,8 +134,8 @@ export const ModalSignUp = ({ open, handleClose }: Props) => {
             fontSize: "14px",
             fontWeight: 400,
             lineHeight: "16px",
-            mt:'-10px',
-            mb: 2
+            mt: "-10px",
+            mb: 2,
           }}
         >
           Already have and account? <b className="signUpTo">Sign in to</b>

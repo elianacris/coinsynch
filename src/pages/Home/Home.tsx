@@ -19,7 +19,6 @@ import Form from "./components/Form";
 export const Home = () => {
   const { t } = useTranslation();
   const [modalSignUp, setModalSignUp] = useState<ReactNode>("");
-
   const handleOpenModalSignUp = () => {
     setModalSignUp(
       <ModalSignUp open={true} handleClose={() => setModalSignUp("")} />

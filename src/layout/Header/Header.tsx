@@ -1,5 +1,5 @@
 import { ReactNode, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
@@ -13,6 +13,7 @@ import { ModalSignUp } from "../../components/Modais/ModalSignUp";
 import { ModalSignIn } from "../../components/Modais/ModalSignIn";
 import { ComponentAvatar } from "../../layout/Header/ComponentAvatar";
 import ButtonTranslation from "../../components/Buttons/ButtonTranslation/ButtonTranslation";
+import { goToDashboard, goToHome } from "../../routes/coordinator";
 
 const drawerWidth = 240;
 
@@ -41,6 +42,7 @@ const settings = ["Logout"];
 
 export default function Header() {
   const location = useLocation();
+  const history = useNavigate();
   const { t } = useTranslation();
   const [modalSignUp, setModalSignUp] = useState<ReactNode>("");
   const [modalSignIn, setModalSignIn] = useState<ReactNode>("");
@@ -53,7 +55,11 @@ export default function Header() {
   };
   const handleOpenModalSignIn = () => {
     setModalSignIn(
-      <ModalSignIn open={true} handleClose={() => setModalSignIn("")} />
+      <ModalSignIn
+        open={true}
+        handleClose={() => setModalSignIn("")}
+        goTo={goToDashboard}
+      />
     );
   };
 
@@ -94,7 +100,13 @@ export default function Header() {
           alignContent: "center",
         }}
       >
-        <IconButton onClick={() => scrollToSection("home")}>
+        <IconButton
+          onClick={() =>
+            location.pathname === "/"
+              ? scrollToSection("home")
+              : goToHome(history)
+          }
+        >
           <img src={logo} alt="" style={{ gridColumn: "span 1" }} />
         </IconButton>
         {location.pathname === "/" && (
@@ -183,7 +195,7 @@ export default function Header() {
                 ":hover": {
                   backgroundColor: " #FBAB34",
                   boxShadow: "none",
-                }
+                },
               }}
             >
               Sign up

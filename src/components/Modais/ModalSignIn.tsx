@@ -7,22 +7,27 @@ import InputPasswordRHF from "../RHF/InputRHFPassword";
 import { signInFormArgs } from "../../pages/Home/validators/signInSchema";
 import "./style.css";
 import ButtonSubmit from "../Buttons/ButtonSubmit/Button";
+import { NavigateFunction, useNavigate } from "react-router-dom";
+
 interface Props {
   open?: boolean;
   handleClose?: () => void;
+  goTo: (history: NavigateFunction) => void;
 }
 type FormData = {
   email: string;
   password: string;
 };
 
-export const ModalSignIn = ({ open, handleClose }: Props) => {
+export const ModalSignIn = ({ open, goTo, handleClose }: Props) => {
+  const history = useNavigate();
   const form = useForm<FieldValues | any>(signInFormArgs);
-
   const { control, handleSubmit } = form;
 
   const onSubmit = (data: FormData) => {
     console.log(data);
+    goTo(history);
+    handleClose();
   };
   return (
     <ModalComponent open={open} handleClose={handleClose}>

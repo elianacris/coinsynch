@@ -3,10 +3,11 @@ interface ButtonProps {
   name: string;
   onClick?: () => void;
 }
-const ButtonSubmit = ({ name }: ButtonProps) => {
+const ButtonSubmit = ({ name, onClick }: ButtonProps) => {
   return (
     <Button
       type="submit"
+      onClick={onClick}
       variant={"outlined"}
       sx={{
         minWidth: "384px",

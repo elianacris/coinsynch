@@ -3,8 +3,12 @@ import TableDasboard from "./components/Table/Table";
 import { CardBalance } from "./components/Cards/CardBalance";
 import { CardDailyVariation } from "./components/Cards/CardDailyVariation";
 import { CardNews } from "./components/Cards/CardNews";
+import { useContext } from "react";
+import { LoadingContext } from "../../context/LoadingContext";
+import { Loading } from "../../components/Loading/Loading";
 
 export const Dashboard = () => {
+  const { isLoading } = useContext(LoadingContext);
   return (
     <Box>
       <Box
@@ -21,8 +25,9 @@ export const Dashboard = () => {
         <CardDailyVariation sx={{ gridColumn: "span 4" }} />
         <CardNews sx={{ gridColumn: "span 4" }} />
 
-        <TableDasboard />
+        {isLoading ? <Loading /> : <TableDasboard />}
       </Box>
+
       <footer
         style={{
           background: "#fff",
