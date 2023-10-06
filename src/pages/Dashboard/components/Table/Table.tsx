@@ -107,6 +107,7 @@ export default function TableDasboard() {
       sx={{
         gridColumn: "span 12",
         p: "32px",
+
       }}
     >
       {openModal && openModal}

@@ -4,7 +4,6 @@ export const CardBalance = (sx) => {
   return (
     <Card
       sx={{
-        ...sx,
         width: "330px",
         height: "112px",
         display: "flex",
@@ -14,6 +13,7 @@ export const CardBalance = (sx) => {
         alignContent: "center",
         justifyItems: "center",
         p: 2,
+        ...sx,
       }}
     >
       <Box

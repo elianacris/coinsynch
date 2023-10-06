@@ -6,12 +6,12 @@ export const CardDailyVariation = (sx) => {
   return (
     <Card
       sx={{
-        ...sx,
         width: "280px",
         height: "112px",
         p: 2,
         display: "flex",
         flexDirection: "row",
+        ...sx,
       }}
     >
       <Box

@@ -4,12 +4,11 @@ export const CardNews = (sx) => {
   return (
     <Card
       sx={{
-        ...sx,
         width: "320px",
         height: "143px",
-
         display: "flex",
         flexDirection: "row",
+        ...sx,
       }}
     >
       <Box

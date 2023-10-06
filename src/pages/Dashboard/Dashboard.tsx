@@ -1,14 +1,10 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import TableDasboard from "./components/Table/Table";
 import { CardBalance } from "./components/Cards/CardBalance";
 import { CardDailyVariation } from "./components/Cards/CardDailyVariation";
 import { CardNews } from "./components/Cards/CardNews";
-import { useContext } from "react";
-import { LoadingContext } from "../../context/LoadingContext";
-import { Loading } from "../../components/Loading/Loading";
 
 export const Dashboard = () => {
-  const { isLoading } = useContext(LoadingContext);
   return (
     <Box>
       <Box
@@ -21,37 +17,39 @@ export const Dashboard = () => {
           p: "32px",
         }}
       >
-        <CardBalance sx={{ gridColumn: "span 4" }} />
-        <CardDailyVariation sx={{ gridColumn: "span 4" }} />
-        <CardNews sx={{ gridColumn: "span 4" }} />
-
-        {isLoading ? <Loading /> : <TableDasboard />}
-      </Box>
-
-      <footer
-        style={{
-          background: "#fff",
-          boxShadow: "0px -4px 8px 0px rgba(77, 77, 77, 0.10)",
-          display: "grid",
-          gridTemplateColumns: "repeat(12, 1fr)",
-          gridColumn: "span 12",
-          padding: "12px ",
-          marginTop: "-10px",
-        }}
-      >
-        <Typography
+        <CardBalance
           sx={{
-            color: "#5D6670",
-            fontSize: "14px",
-            fontWeight: 400,
-            lineHeight: "16px",
-            gridColumn: "span 12",
-            textAlign: "center",
+            gridColumn: {
+              xs: "span 2",
+              sm: "span 6",
+              md: "span 6",
+              lg: "span 12",
+            },
           }}
-        >
-          Copyright © 2022 - All rights reserved
-        </Typography>
-      </footer>
+        />
+        <CardDailyVariation
+          sx={{
+            gridColumn: {
+              xs: "span 2",
+              sm: "span 6",
+              md: "span 6",
+              lg: "span 3",
+            },
+          }}
+        />
+        <CardNews
+          sx={{
+            gridColumn: {
+              xs: "span 2",
+              sm: "span 6",
+              md: "span 6",
+              lg: "span 3",
+            },
+          }}
+        />
+        <TableDasboard />
+      </Box>
+      {/* <Footer /> */}
     </Box>
   );
 };
