@@ -25,3 +25,5 @@ Yup,
 react-hook-form, 
 slick-carousel,
 i18next
+# Responsividade 
+Utilizando display: grid, gridColumn: repeat(12, 1fr), com os breakpoints: xs, sm, md, lg, xl 
