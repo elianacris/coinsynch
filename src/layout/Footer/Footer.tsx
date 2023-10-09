@@ -30,6 +30,10 @@ const Footer = () => {
             lineHeight: "16px",
             textAlign: "center",
             justifyContent: "center",
+            display: {
+              xs: location.pathname === "/" && "none",
+              md: "flex",
+            },
           }}
         >
           Copyright © 2022 - All rights reserved
