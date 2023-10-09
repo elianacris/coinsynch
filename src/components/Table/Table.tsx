@@ -106,6 +106,9 @@ export default function TableComponent() {
   return (
     <Box
       sx={{
+        display: "grid",
+        gridTemplateColumns: "repeat(12, 1fr)",
+        rowGap: 1,
         gridColumn: "span 12",
       }}
     >
@@ -117,11 +120,16 @@ export default function TableComponent() {
           color: "var(--text-base, #5D6670)",
           textAlign: "center",
           mb: 2,
+          gridColumn: "span 12",
         }}
       >
         Top Cryptos
       </Typography>
-      <TableContainer component={Paper} sx={{ boxShadow: "none" }}>
+
+      <TableContainer
+        component={Paper}
+        sx={{ boxShadow: "none", gridColumn: "span 12" }}
+      >
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
           <TableHead>
             <TableRow>
@@ -148,40 +156,39 @@ export default function TableComponent() {
         </Table>
       </TableContainer>
 
-      <div>
-        {!showAll && rows?.length > 3 && (
-          <Button
-            variant="text"
-            onClick={handleViewMore}
-            sx={{
-              textTransform: "none",
-              gap: "8px",
-              ml: "600px",
-              fontSize: "16px",
-              fontWeight: 400,
-              lineHeight: "24px",
-            }}
-          >
-            View more <AddIcon sx={{ width: "12px", height: "12px" }} />
-          </Button>
-        )}
-        {showAll && (
-          <Button
-            variant="text"
-            onClick={handleViewLess}
-            sx={{
-              textTransform: "none",
-              gap: "8px",
-              ml: "600px",
-              fontSize: "16px",
-              fontWeight: 400,
-              lineHeight: "24px",
-            }}
-          >
-            View less
-          </Button>
-        )}
-      </div>
+      {!showAll && rows?.length > 3 && (
+        <Button
+          variant="text"
+          onClick={handleViewMore}
+          sx={{
+            textTransform: "none",
+            gap: "8px",
+            fontSize: "16px",
+            fontWeight: 400,
+            lineHeight: "24px",
+            gridColumn: "span 12",
+          }}
+        >
+          View more <AddIcon sx={{ width: "12px", height: "12px" }} />
+        </Button>
+      )}
+      {showAll && (
+        <Button
+          variant="text"
+          onClick={handleViewLess}
+          sx={{
+            textTransform: "none",
+            gap: "8px",
+            fontSize: "16px",
+            fontWeight: 400,
+            lineHeight: "24px",
+            textAlign: "center",
+            gridColumn: "span 1",
+          }}
+        >
+          View less
+        </Button>
+      )}
     </Box>
   );
 }
