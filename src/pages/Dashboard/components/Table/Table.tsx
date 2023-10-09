@@ -105,14 +105,22 @@ export default function TableDasboard() {
   return (
     <Box
       sx={{
+        display: "grid",
+        gridTemplateColumns: "repeat(12, 1fr)",
+        rowGap: 1,
         gridColumn: "span 12",
         p: "32px",
-
       }}
     >
       {openModal && openModal}
 
-      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          gridColumn: "span 12",
+        }}
+      >
         <Box sx={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
           <img src={imageTable} alt={""} />
           <Typography
@@ -149,7 +157,10 @@ export default function TableDasboard() {
           <AddIcon sx={{ width: "12px", height: "12px" }} /> Add Crypto
         </Button>
       </Box>
-      <TableContainer component={Paper} sx={{ boxShadow: "none" }}>
+      <TableContainer
+        component={Paper}
+        sx={{ boxShadow: "none", gridColumn: "span 12" }}
+      >
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
           <TableHead>
             <TableRow>

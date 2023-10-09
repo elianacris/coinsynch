@@ -1,6 +1,10 @@
-import { Box, Card, Typography } from "@mui/material";
+import { Box, Card, SxProps, Typography } from "@mui/material";
 import icon from "../../../../assets/icon2.svg";
-export const CardNews = (sx) => {
+interface Props {
+  sx: SxProps;
+}
+
+export const CardNews = ({ sx }: Props) => {
   return (
     <Card
       sx={{

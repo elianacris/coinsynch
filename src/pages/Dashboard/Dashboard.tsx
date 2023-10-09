@@ -6,50 +6,50 @@ import { CardNews } from "./components/Cards/CardNews";
 
 export const Dashboard = () => {
   return (
-    <Box>
-      <Box
+    <Box
+      sx={{
+        display: "grid",
+        gridTemplateColumns: "repeat(12, 1fr)",
+        rowGap: 1,
+        gridColumn: "span 12",
+        columnGap: 2,
+        p: "32px",
+      }}
+    >
+      <CardBalance
         sx={{
-          display: "grid",
-          gridTemplateColumns: "repeat(12, 1fr)",
-          rowGap: 1,
-          gridColumn: "span 12",
-          columnGap: 2,
-          p: "32px",
+          gridColumn: {
+            xs: "span 8",
+            sm: "span 6",
+            md: "span 4",
+            lg: "span 4",
+            xl: "span 4",
+          },
         }}
-      >
-        <CardBalance
-          sx={{
-            gridColumn: {
-              xs: "span 2",
-              sm: "span 6",
-              md: "span 6",
-              lg: "span 12",
-            },
-          }}
-        />
-        <CardDailyVariation
-          sx={{
-            gridColumn: {
-              xs: "span 2",
-              sm: "span 6",
-              md: "span 6",
-              lg: "span 3",
-            },
-          }}
-        />
-        <CardNews
-          sx={{
-            gridColumn: {
-              xs: "span 2",
-              sm: "span 6",
-              md: "span 6",
-              lg: "span 3",
-            },
-          }}
-        />
-        <TableDasboard />
-      </Box>
-      {/* <Footer /> */}
+      />
+      <CardDailyVariation
+        sx={{
+          gridColumn: {
+            xs: "span 8",
+            sm: "span 6",
+            md: "span 4",
+            lg: "span 4",
+            xl: "span 4",
+          },
+        }}
+      />
+      <CardNews
+        sx={{
+          gridColumn: {
+            xs: "span 8",
+            sm: "span 6",
+            md: "span 4",
+            lg: "span 4",
+            xl: "span 4",
+          },
+        }}
+      />
+      <TableDasboard />
     </Box>
   );
 };

@@ -1,6 +1,9 @@
-import { Box, Card, Typography } from "@mui/material";
+import { Box, Card, SxProps, Typography } from "@mui/material";
+interface Props {
+  sx: SxProps;
+}
 
-export const CardBalance = (sx) => {
+export const CardBalance = ({ sx }: Props) => {
   return (
     <Card
       sx={{
