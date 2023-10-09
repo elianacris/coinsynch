@@ -11,7 +11,6 @@ import card1 from "../../assets/imageCards/card1.svg";
 import card2 from "../../assets/imageCards/card2.svg";
 import card3 from "../../assets/imageCards/card3.svg";
 import card4 from "../../assets/imageCards/card4.svg";
-import logoFooter from "../../assets/logoFooter.svg";
 import CarouselImage from "../../components/Slider/CarouselImage";
 import { ModalSignUp } from "../../components/Modais/ModalSignUp";
 import Form from "./components/Form";
@@ -19,7 +18,6 @@ import Form from "./components/Form";
 export const Home = () => {
   const { t } = useTranslation();
   const [modalSignUp, setModalSignUp] = useState<ReactNode>("");
-
   const handleOpenModalSignUp = () => {
     setModalSignUp(
       <ModalSignUp open={true} handleClose={() => setModalSignUp("")} />
@@ -293,7 +291,7 @@ export const Home = () => {
           <Form />
         </Box>
       </Box>
-      <footer
+      {/* <footer
         style={{
           background: "#fff",
           boxShadow: "0px -4px 8px 0px rgba(77, 77, 77, 0.10)",
@@ -315,8 +313,8 @@ export const Home = () => {
         >
           Copyright © 2022 - All rights reserved
         </Typography>
-        <img src={logoFooter} alt="" style={{ gridColumn: "span 6" }} />
-      </footer>
+        
+      </footer> */}
     </Box>
   );
 };

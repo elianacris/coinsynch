@@ -1,17 +1,21 @@
-import { Box, Card, Typography } from "@mui/material";
+import { Box, Card, SxProps, Typography } from "@mui/material";
 import BasicArea from "../Charts/BasicArea";
 import icon from "../../../../assets/icon.svg";
 
-export const CardDailyVariation = (sx) => {
+interface Props {
+  sx: SxProps;
+}
+
+export const CardDailyVariation = ({ sx }: Props) => {
   return (
     <Card
       sx={{
-        ...sx,
         width: "280px",
         height: "112px",
         p: 2,
         display: "flex",
         flexDirection: "row",
+        ...sx,
       }}
     >
       <Box

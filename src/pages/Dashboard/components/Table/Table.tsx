@@ -18,6 +18,7 @@ import image4 from "../../../../assets/imageTable/image4.svg";
 import imageTable from "../../../../assets/table.svg";
 import { ColumnCrypto } from "../../../../components/Table/ColumnCrypto";
 import { ButtonTable } from "./ButtonTable";
+import { ModalAddCrypto } from "../../../../components/Modais/ModalAddCrypto";
 
 const StyledTableCell = styled(TableCell)(() => ({
   [`&.${tableCellClasses.head}`]: {
@@ -49,58 +50,77 @@ interface Data {
   change: string;
   trade: ReactNode;
 }
+const column = [
+  {
+    id: 1,
+    crypto: <ColumnCrypto title="Bitcoin BTC" image={image1} />,
+    holdings: "US$ 25.499,52",
+    change: "+5,65%",
+    trade: <ButtonTable />,
+  },
+  {
+    id: 2,
+    crypto: <ColumnCrypto title="Ethereum ETH" image={image4} />,
+    holdings: "US$ 15.499,52",
+    change: "-5,65%",
+    trade: <ButtonTable />,
+  },
+  {
+    id: 3,
+    crypto: <ColumnCrypto title="Cardano ADA" image={image3} />,
+    holdings: "US$ 5.499,52",
+    change: "+5,65%",
+    trade: <ButtonTable />,
+  },
+  {
+    id: 4,
+    crypto: <ColumnCrypto title="Solana SOL" image={image2} />,
+    holdings: "US$ 2.499,52",
+    change: "-5,65%",
+    trade: <ButtonTable />,
+  },
+];
 
 export default function TableDasboard() {
-  const [rows, setRows] = useState<Data[]>([
-    {
-      id: 1,
-      crypto: <ColumnCrypto title="Bitcoin BTC" image={image1} />,
-      holdings: "US$ 25.499,52",
-      change: "+5,65%",
-      trade: <ButtonTable />,
-    },
-    {
-      id: 2,
-      crypto: <ColumnCrypto title="Ethereum ETH" image={image4} />,
-      holdings: "US$ 15.499,52",
-      change: "-5,65%",
-      trade: <ButtonTable />,
-    },
-    {
-      id: 3,
-      crypto: <ColumnCrypto title="Cardano ADA" image={image3} />,
-      holdings: "US$ 5.499,52",
-      change: "+5,65%",
-      trade: <ButtonTable />,
-    },
-    {
-      id: 4,
-      crypto: <ColumnCrypto title="Solana SOL" image={image2} />,
-      holdings: "US$ 2.499,52",
-      change: "-5,65%",
-      trade: <ButtonTable />,
-    },
-  ]);
+  const [rows, setRows] = useState<Data[]>(column);
+  const [openModal, setOpenModal] = useState<ReactNode>("");
 
-  const handleAddRow = () => {
-    const newRow = {
-      id: rows.length + 1,
-      crypto: "",
-      holdings: "",
-      change: "",
-      trade: "",
-    };
-    setRows([...rows, newRow]);
+  // const handleAddRow = () => {
+  //   const newRow = {
+  //     id: rows.length + 1,
+  //     crypto: "",
+  //     holdings: "",
+  //     change: "",
+  //     trade: "",
+  //   };
+  //   setRows([...rows, newRow]);
+  // };
+
+  const handleOpenModal = () => {
+    setOpenModal(
+      <ModalAddCrypto open={true} handleClose={() => setOpenModal("")} />
+    );
   };
 
   return (
     <Box
       sx={{
+        display: "grid",
+        gridTemplateColumns: "repeat(12, 1fr)",
+        rowGap: 1,
         gridColumn: "span 12",
         p: "32px",
       }}
     >
-      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+      {openModal && openModal}
+
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          gridColumn: "span 12",
+        }}
+      >
         <Box sx={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
           <img src={imageTable} alt={""} />
           <Typography
@@ -118,7 +138,7 @@ export default function TableDasboard() {
         </Box>
         <Button
           variant="text"
-          onClick={handleAddRow}
+          onClick={handleOpenModal}
           sx={{
             textTransform: "none",
             padding: " 8px 16px",
@@ -137,7 +157,10 @@ export default function TableDasboard() {
           <AddIcon sx={{ width: "12px", height: "12px" }} /> Add Crypto
         </Button>
       </Box>
-      <TableContainer component={Paper} sx={{ boxShadow: "none" }}>
+      <TableContainer
+        component={Paper}
+        sx={{ boxShadow: "none", gridColumn: "span 12" }}
+      >
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
           <TableHead>
             <TableRow>
