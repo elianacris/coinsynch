@@ -23,7 +23,6 @@ export const CardComponent = ({
         borderradius: "6px",
         background: "#FFF",
         boxShadow: "0px 12px 24px 0px rgba(0, 0, 0, 0.05)",
-        // perspective: "1000px",
         ...sx,
       }}
     >
